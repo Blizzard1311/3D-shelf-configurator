@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可配置的3D货架和2D棚格图查看器 (毫米单位)</title>
+    <style>
+        body { margin: 0; overflow: hidden; font-family: Arial, sans-serif; background-color: #f0f0f0; display: flex; height: 100vh; }
+        #main-container { display: flex; flex-grow: 1; height: 100%; }
+        #renderer-container { flex-grow: 1; position: relative; min-width: 200px; cursor: grab; }
+        #renderer-container.grabbing { cursor: grabbing; }
+        #splitter {
+            width: 10px; /* Width of the splitter */
+            cursor: ew-resize; /* Cursor for resizing */
+            background-color: #ccc; /* Splitter color */
+            flex-shrink: 0; /* Prevent splitter from shrinking */
+        }
+        #planogram-container {
+            flex-basis: 350px; /* Initial width */
+            height: 100%;
+            background-color: #ffffff;
+            border-left: 2px solid #ccc;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: auto; /* Changed to auto */
+            min-width: 200px; /* Added min-width */
+        }
+        body.resizing {
+            cursor: ew-resize;
+            user-select: none; /* Prevent text selection during resize */
+        }
+        #planogram-canvas { border: 1px solid #b0b0b0; max-width: 100%; }
+        #info { position: absolute; top: 10px; left: 0; width: 100%; text-align: center; color: #333; font-size: 16px; z-index: 10; pointer-events: none; transition: color 0.3s; }
+        
+        /* Controls Panel */
+        #controls-panel { position: absolute; top: 50px; left: 10px; background: #ffffff; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; width: 300px; max-height: calc(100vh - 70px); display: flex; flex-direction: column; }
+        #controls-panel-header { padding: 10px 15px; background-color: #007bff; color: white; border-top-left-radius: 8px; border-top-right-radius: 8px; cursor: move; font-size: 16px; font-weight: bold; text-align: center; flex-shrink: 0; }
+        #controls-panel-content { padding: 15px; overflow-y: auto; flex-grow: 1; min-height: 0; }
+        #controls-panel div.control-group { margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
+        #controls-panel label { margin-right: 10px; color: #555; font-size: 14px; flex-shrink: 0; }
+        #controls-panel input[type="number"] { width: 80px; padding: 6px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; }
+        
+        /* Product Library Panel */
+        #product-library { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255, 255, 255, 0.9); border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; padding: 10px; display: flex; gap: 10px; }
+        .product-btn { padding: 8px 12px; border: 1px solid #007bff; background-color: #fff; color: #007bff; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        .product-btn:hover, .product-btn.selected { background-color: #007bff; color: #fff; }
+
+        /* Edit Modal */
+        #edit-modal { display: none; position: absolute; background: white; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); z-index: 2000; padding: 15px; width: 200px; }
+        #edit-modal-content > div { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        #edit-modal-content button { width: 100%; padding: 8px; margin-top: 5px; }
+
+    </style>
+</head>
+<body>
+
+    <!-- Main Panels -->
+    <div id="controls-panel">
+        <div id="controls-panel-header">货架结构设置</div>
+        <div id="controls-panel-content">
+            <div class="control-group">
+                <label for="shelfHeightInput">总高度 (mm):</label>
+                <input type="number" id="shelfHeightInput" value="2000" step="100" min="500">
+            </div>
+            <div class="control-group">
+                <label for="shelfWidthInput">总宽度 (mm):</label>
+                <input type="number" id="shelfWidthInput" value="1000" step="50" min="300">
+            </div>
+            <div class="control-group">
+                <label for="shelfDepthInput">层板纵深 (mm):</label>
+                <input type="number" id="shelfDepthInput" value="400" step="10" min="100">
+            </div>
+            <div class="control-group">
+                <label for="numShelvesInput">层板数量:</label>
+                <input type="number" id="numShelvesInput" value="5" step="1" min="1">
+            </div>
+            <div id="shelfPositionsContainer"></div>
+            <button id="updateButton">更新视图</button>
+        </div>
+    </div>
+
+    <div id="main-container">
+        <div id="renderer-container">
+            <div id="info">左键旋转，滚轮缩放，右键平移。双击商品可编辑。</div>
+        </div>
+        <div id="splitter"></div>
+        <div id="planogram-container">
+            <h4 id="planogram-title">2D平面图</h4>
+            <canvas id="planogram-canvas"></canvas>
+            <button id="exportPdfButton" style="margin-top: 10px; padding: 8px 12px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">导出PDF</button>
+        </div>
+    </div>
+
+    <!-- Floating Product Library -->
+    <div id="product-library">
+        <button class="product-btn" data-size="small">小盒子</button>
+        <button class="product-btn" data-size="medium">中盒子</button>
+        <button class="product-btn" data-size="large">大盒子</button>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="edit-modal">
+        <div id="edit-modal-content">
+             <div>
+                <label for="edit-color">颜色:</label>
+                <input type="color" id="edit-color">
+            </div>
+            <button id="delete-prop-btn">删除商品</button>
+            <button id="close-modal-btn">关闭</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/DragControls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        let scene, camera, renderer, controls, dragControls;
+        let shelfGroup, shelfPlanks = [];
+        let planogramCanvas, planogramCtx;
+        let draggableProps = [];
+        let raycaster = new THREE.Raycaster();
+        let mouse = new THREE.Vector2();
+        let placementMode = { active: false, size: null, color: null };
+        let selectedProp = null;
+        const defaultInfoText = "左键旋转，滚轮缩放，右键平移。双击商品可编辑。";
+
+        let isResizing = false;
+        let rendererContainer, planogramContainer, splitter, mainContainer;
+
+        const propSizes = {
+            small: { width: 80, height: 120, depth: 80 },
+            medium: { width: 150, height: 200, depth: 150 },
+            large: { width: 250, height: 300, depth: 250 },
+        };
+        
+        let currentShelfParams = {
+            shelfHeight: 2000,
+            shelfUnitWidth: 1000,
+            shelfDepth: 400, 
+            numShelves: 5,
+            shelfDetails: [], 
+        };
+
+        document.addEventListener('DOMContentLoaded', init);
+
+        function init() {
+            setupScene();
+            setupUI();
+            rendererContainer = document.getElementById('renderer-container');
+            planogramContainer = document.getElementById('planogram-container');
+            splitter = document.getElementById('splitter');
+            mainContainer = document.getElementById('main-container');
+            setupSplitter();
+            regenerateFromData(false);
+            animate();
+        }
+
+        function setupScene() {
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x87CEEB); // Changed to a sky blue background
+            const container = document.getElementById('renderer-container');
+
+            camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 10, 10000);
+            camera.position.set(1500, 1500, 2500);
+
+            renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            container.appendChild(renderer.domElement);
+
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+            scene.add(ambientLight);
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 1.0);
+            directionalLight.position.set(1000, 2000, 3000);
+            scene.add(directionalLight);
+
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+
+            window.addEventListener('resize', onWindowResize);
+            container.addEventListener('click', onContainerClick);
+            container.addEventListener('dblclick', onContainerDblClick);
+        }
+
+        function setupUI() {
+            planogramCanvas = document.getElementById('planogram-canvas');
+            planogramCtx = planogramCanvas.getContext('2d');
+            makeDraggable(document.getElementById('controls-panel'), document.getElementById('controls-panel-header'));
+
+            document.getElementById('updateButton').addEventListener('click', () => regenerateFromData(true));
+            document.querySelectorAll('.product-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.product-btn').forEach(b => b.classList.remove('selected'));
+                    btn.classList.add('selected');
+                    placementMode.active = true;
+                    placementMode.size = btn.dataset.size;
+                    placementMode.color = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+                    const infoDiv = document.getElementById('info');
+                    infoDiv.innerText = `已选择 '${btn.innerText}', 请在货架上点击以放置。`;
+                    infoDiv.style.color = '#007bff';
+                });
+            });
+            
+            document.getElementById('close-modal-btn').onclick = () => document.getElementById('edit-modal').style.display = 'none';
+            document.getElementById('delete-prop-btn').onclick = deleteSelectedProp;
+            document.getElementById('edit-color').onchange = updateSelectedPropColor;
+
+            document.getElementById('exportPdfButton').addEventListener('click', exportPlanogramToPdf);
+        }
+
+        function exportPlanogramToPdf() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF('p', 'mm', 'a4');
+
+            // --- Create Header Canvas with Dimensions ---
+            const headerCanvas = document.createElement('canvas');
+            const headerCtx = headerCanvas.getContext('2d');
+            const textLines = [];
+            let yPos = 30; // Start Y position on canvas
+            const lineHeight = 25; // Line height for text
+            const canvasWidth = 800; // A fixed width for the header canvas
+
+            // Prepare text lines
+            textLines.push({ text: '货架尺寸信息', font: 'bold 24px Arial', y: yPos });
+            yPos += 40;
+            textLines.push({ text: `总高度: ${currentShelfParams.shelfHeight} mm`, font: '20px Arial', y: yPos });
+            yPos += lineHeight;
+            textLines.push({ text: `总宽度: ${currentShelfParams.shelfUnitWidth} mm`, font: '20px Arial', y: yPos });
+            yPos += 40;
+            textLines.push({ text: '层板间距:', font: 'bold 22px Arial', y: yPos });
+            yPos += lineHeight;
+
+            const sortedShelves = [...currentShelfParams.shelfDetails].sort((a, b) => b.y - a.y);
+            for (let i = 0; i < sortedShelves.length; i++) {
+                const topShelfY = sortedShelves[i].y;
+                const bottomShelfY = (i + 1 < sortedShelves.length) ? sortedShelves[i+1].y : 0;
+                const spacing = topShelfY - bottomShelfY;
+                const shelfLabel = i + 2 > sortedShelves.length ? '地面' : `层板 ${i + 2}`;
+                textLines.push({ text: `层板 ${i + 1} 到 ${shelfLabel}: ${spacing.toFixed(0)} mm`, font: '20px Arial', y: yPos });
+                yPos += lineHeight;
+            }
+
+            // Set canvas size based on text content
+            headerCanvas.width = canvasWidth;
+            headerCanvas.height = yPos;
+
+            // Draw the text
+            headerCtx.fillStyle = '#ffffff';
+            headerCtx.fillRect(0, 0, headerCanvas.width, headerCanvas.height);
+            headerCtx.fillStyle = '#000000';
+            headerCtx.textAlign = 'left';
+            textLines.forEach(line => {
+                headerCtx.font = line.font;
+                headerCtx.fillText(line.text, 20, line.y);
+            });
+
+            const headerImgData = headerCanvas.toDataURL('image/png');
+            // --- End Header Canvas ---
+
+            const imgWidth = 190; // A4 width in mm, less margins
+            
+            // Add header image to PDF
+            const headerImgHeight = (headerCanvas.height * imgWidth) / headerCanvas.width;
+            let currentY = 10;
+            doc.addImage(headerImgData, 'PNG', 10, currentY, imgWidth, headerImgHeight);
+            currentY += headerImgHeight;
+
+            // Add planogram image to PDF
+            const planogramImgData = planogramCanvas.toDataURL('image/png');
+            const planogramImgHeight = (planogramCanvas.height * imgWidth) / planogramCanvas.width;
+            
+            // Position planogram image below the header
+            currentY += 5; // margin
+
+            const pageHeight = doc.internal.pageSize.height;
+            if (currentY + planogramImgHeight > pageHeight) {
+                doc.addPage();
+                currentY = 10; // Start on new page
+            }
+            
+            doc.addImage(planogramImgData, 'PNG', 10, currentY, imgWidth, planogramImgHeight);
+            
+            let heightLeft = planogramImgHeight - (pageHeight - currentY);
+            let position = -pageHeight + currentY; 
+
+            while (heightLeft > 0) {
+                doc.addPage();
+                position += pageHeight;
+                doc.addImage(planogramImgData, 'PNG', 10, -position, imgWidth, planogramImgHeight);
+                heightLeft -= pageHeight;
+            }
+
+            doc.save('planogram_with_dimensions.pdf');
+        }
+
+        function regenerateFromData(readFromUI) {
+            if (readFromUI) {
+                 currentShelfParams.shelfHeight = parseFloat(document.getElementById('shelfHeightInput').value);
+                 currentShelfParams.shelfUnitWidth = parseFloat(document.getElementById('shelfWidthInput').value);
+                 currentShelfParams.shelfDepth = parseFloat(document.getElementById('shelfDepthInput').value);
+                 const newNumShelves = parseInt(document.getElementById('numShelvesInput').value);
+                 if(newNumShelves !== currentShelfParams.numShelves){
+                    updateShelfDetailsInputs(newNumShelves, true);
+                 } else {
+                    collectShelfDetails();
+                 }
+                 currentShelfParams.numShelves = newNumShelves;
+            } else {
+                 updateShelfDetailsInputs(currentShelfParams.numShelves, true);
+            }
+            
+            clearScene();
+            createSupermarketShelf();
+            updateControlsTarget();
+            if (dragControls) dragControls.dispose();
+            initDragControls();
+            drawPlanogram();
+        }
+
+        function createSupermarketShelf() {
+            shelfGroup = new THREE.Group();
+            scene.add(shelfGroup);
+
+            const glassMaterial = new THREE.MeshPhysicalMaterial({ color: 0xffffff, metalness: 0.1, roughness: 0.2, transmission: 0.9, transparent: true, opacity: 0.7 });
+
+            // Function to add edges
+            const addEdges = (mesh) => {
+                const edges = new THREE.EdgesGeometry(mesh.geometry);
+                const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0x000000, linewidth: 2 }));
+                mesh.add(line);
+            };
+
+            const pillarGeo = new THREE.BoxGeometry(40, currentShelfParams.shelfHeight, 40);
+            const leftPillar = new THREE.Mesh(pillarGeo, glassMaterial);
+            leftPillar.position.set(-currentShelfParams.shelfUnitWidth / 2, currentShelfParams.shelfHeight / 2, -currentShelfParams.shelfDepth/2 + 20);
+            addEdges(leftPillar);
+            shelfGroup.add(leftPillar);
+
+            const rightPillar = new THREE.Mesh(pillarGeo, glassMaterial);
+            rightPillar.position.set(currentShelfParams.shelfUnitWidth / 2, currentShelfParams.shelfHeight / 2, -currentShelfParams.shelfDepth/2 + 20);
+            addEdges(rightPillar);
+            shelfGroup.add(rightPillar);
+
+            currentShelfParams.shelfDetails.forEach(detail => {
+                const plankGeo = new THREE.BoxGeometry(currentShelfParams.shelfUnitWidth, 20, currentShelfParams.shelfDepth);
+                const plank = new THREE.Mesh(plankGeo, glassMaterial);
+                plank.position.set(0, detail.y, 0);
+                addEdges(plank);
+                shelfGroup.add(plank);
+                shelfPlanks.push(plank); 
+            });
+        }
+
+        function onContainerClick(event) {
+            if (!placementMode.active) return;
+
+            mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
+            mouse.y = -(event.clientY / renderer.domElement.clientHeight) * 2 + 1;
+            raycaster.setFromCamera(mouse, camera);
+
+            const intersects = raycaster.intersectObjects(shelfPlanks);
+            if (intersects.length > 0) {
+                const intersect = intersects[0];
+                const shelf = intersect.object;
+                const point = intersect.point;
+                const size = propSizes[placementMode.size];
+
+                const propGeo = new THREE.BoxGeometry(size.width, size.height, size.depth);
+                const propMat = new THREE.MeshStandardMaterial({ color: placementMode.color });
+                const propMesh = new THREE.Mesh(propGeo, propMat);
+
+                propMesh.position.set(point.x, shelf.position.y + size.height / 2 + 10, 0);
+                
+                propMesh.userData = { 
+                    shelfY: shelf.position.y,
+                    propHeight: size.height,
+                    color: placementMode.color,
+                    size: placementMode.size,
+                    isProp: true
+                };
+
+                shelfGroup.add(propMesh);
+                draggableProps.push(propMesh);
+                if (dragControls) dragControls.dispose();
+                initDragControls();
+                drawPlanogram();
+            }
+            
+            placementMode.active = false;
+            document.querySelectorAll('.product-btn').forEach(b => b.classList.remove('selected'));
+            const infoDiv = document.getElementById('info');
+            infoDiv.innerText = defaultInfoText;
+            infoDiv.style.color = '#333';
+        }
+
+        function onContainerDblClick(event) {
+            mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
+            mouse.y = -(event.clientY / renderer.domElement.clientHeight) * 2 + 1;
+            raycaster.setFromCamera(mouse, camera);
+
+            const intersects = raycaster.intersectObjects(draggableProps);
+            if (intersects.length > 0) {
+                selectedProp = intersects[0].object;
+                const modal = document.getElementById('edit-modal');
+                modal.style.display = 'block';
+                modal.style.left = `${event.clientX + 5}px`;
+                modal.style.top = `${event.clientY + 5}px`;
+                document.getElementById('edit-color').value = `#${selectedProp.material.color.getHexString()}`;
+            }
+        }
+
+        function deleteSelectedProp() {
+            if (!selectedProp) return;
+            shelfGroup.remove(selectedProp);
+            const index = draggableProps.indexOf(selectedProp);
+            if (index > -1) draggableProps.splice(index, 1);
+            selectedProp.geometry.dispose();
+            selectedProp.material.dispose();
+            selectedProp = null;
+            document.getElementById('edit-modal').style.display = 'none';
+            if (dragControls) dragControls.dispose();
+            initDragControls();
+            drawPlanogram();
+        }
+
+        function updateSelectedPropColor(event) {
+            if (!selectedProp) return;
+            selectedProp.material.color.set(event.target.value);
+            selectedProp.userData.color = event.target.value;
+            drawPlanogram();
+        }
+
+        function initDragControls(){
+            dragControls = new THREE.DragControls([...draggableProps], camera, renderer.domElement);
+            dragControls.addEventListener('dragstart', () => { controls.enabled = false; });
+            dragControls.addEventListener('drag', (e) => {
+                const object = e.object;
+                const halfWidth = object.geometry.parameters.width / 2;
+                const halfDepth = object.geometry.parameters.depth / 2;
+
+                // Keep Y position fixed on the shelf
+                object.position.y = object.userData.shelfY + object.userData.propHeight / 2 + 10;
+
+                // Constrain X position
+                const minX = -currentShelfParams.shelfUnitWidth / 2 + halfWidth;
+                const maxX = currentShelfParams.shelfUnitWidth / 2 - halfWidth;
+                object.position.x = Math.max(minX, Math.min(maxX, object.position.x));
+
+                // Constrain Z position
+                const minZ = -currentShelfParams.shelfDepth / 2 + halfDepth;
+                const maxZ = currentShelfParams.shelfDepth / 2 - halfDepth;
+                object.position.z = Math.max(minZ, Math.min(maxZ, object.position.z));
+            });
+            dragControls.addEventListener('dragend', () => { 
+                controls.enabled = true; 
+                drawPlanogram();
+            });
+        }
+
+        function setupSplitter() {
+            splitter.addEventListener('mousedown', (e) => {
+                isResizing = true;
+                document.body.classList.add('resizing');
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (!isResizing) return;
+
+                const totalWidth = mainContainer.clientWidth;
+                const newRendererWidth = e.clientX - mainContainer.getBoundingClientRect().left;
+                const splitterWidth = splitter.offsetWidth;
+                const newPlanogramWidth = totalWidth - newRendererWidth - splitterWidth;
+
+                const minWidth = 200; // Minimum width for both panels
+
+                if (newRendererWidth < minWidth || newPlanogramWidth < minWidth) {
+                    return;
+                }
+
+                rendererContainer.style.flexGrow = 0;
+                planogramContainer.style.flexGrow = 0;
+                rendererContainer.style.flexBasis = `${newRendererWidth}px`;
+                planogramContainer.style.flexBasis = `${newPlanogramWidth}px`;
+
+                onWindowResize();
+            });
+
+            document.addEventListener('mouseup', () => {
+                if (!isResizing) return;
+                isResizing = false;
+                document.body.classList.remove('resizing');
+            });
+        }
+
+        function updateShelfDetailsInputs(num, setDefaults) {
+            const container = document.getElementById('shelfPositionsContainer');
+            container.innerHTML = '<h5>层板垂直位置</h5>'; 
+            let details = [];
+            const defaultSpacing = currentShelfParams.shelfHeight / (num + 1);
+            for (let i = 0; i < num; i++) {
+                const y = setDefaults ? Math.round(currentShelfParams.shelfHeight - (defaultSpacing * (i + 1))) : (currentShelfParams.shelfDetails[i]?.y || 0);
+                details.push({ y });
+                const div = document.createElement('div');
+                div.className = 'control-group';
+                div.innerHTML = `<label for="shelf_y_${i}">层板 ${i + 1} (mm):</label><input type="number" id="shelf_y_${i}" value="${y}">`;
+                container.appendChild(div);
+            }
+            currentShelfParams.shelfDetails = details;
+        }
+
+        function collectShelfDetails(){
+            currentShelfParams.shelfDetails.forEach((detail, i) => {
+                const input = document.getElementById(`shelf_y_${i}`);
+                if (input) detail.y = parseFloat(input.value);
+            });
+        }
+
+        function drawPlanogram() {
+            const container = document.getElementById('planogram-container');
+            const planogramWidth = container.clientWidth - 40; // container width - padding
+            const scale = planogramWidth / currentShelfParams.shelfUnitWidth;
+            const planogramHeight = currentShelfParams.shelfHeight * scale;
+            planogramCanvas.width = planogramWidth;
+            planogramCanvas.height = planogramHeight;
+            const ctx = planogramCtx;
+
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0,0, planogramWidth, planogramHeight);
+
+            // Draw shelves
+             currentShelfParams.shelfDetails.forEach(detail => {
+                const y = (currentShelfParams.shelfHeight - detail.y) * scale;
+                ctx.fillStyle = '#DDDDDD';
+                ctx.fillRect(0, y - (10 * scale), planogramWidth, 20 * scale);
+            });
+
+            // Draw props
+            draggableProps.forEach(prop => {
+                const y = (currentShelfParams.shelfHeight - prop.userData.shelfY) * scale;
+                ctx.fillStyle = prop.userData.color;
+                const propWidth = prop.geometry.parameters.width * scale;
+                const propHeight = prop.geometry.parameters.height * scale;
+                const propX = (prop.position.x + currentShelfParams.shelfUnitWidth / 2 - prop.geometry.parameters.width / 2) * scale;
+                ctx.fillRect(propX, y - propHeight - (10 * scale), propWidth, propHeight);
+            });
+        }
+        
+        function clearScene() {
+            if (shelfGroup) scene.remove(shelfGroup);
+            draggableProps.forEach(p => { p.geometry.dispose(); p.material.dispose(); });
+            draggableProps = [];
+            shelfPlanks = [];
+        }
+        
+        function updateControlsTarget() {
+            controls.target.set(0, currentShelfParams.shelfHeight / 2, 0);
+            controls.update();
+        }
+
+        function onWindowResize() { 
+            const container = document.getElementById('renderer-container');
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            drawPlanogram();
+        }
+
+        function animate() { 
+            requestAnimationFrame(animate);
+            controls.update(); 
+            renderer.render(scene, camera);
+        }
+        function makeDraggable(element, handle) {
+            let isDragging = false, offsetX, offsetY;
+            handle.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                offsetX = e.clientX - element.getBoundingClientRect().left;
+                offsetY = e.clientY - element.getBoundingClientRect().top;
+            });
+            document.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                element.style.left = `${e.clientX - offsetX}px`;
+                element.style.top = `${e.clientY - offsetY}px`;
+            });
+            document.addEventListener('mouseup', () => { isDragging = false; });
+        }
+
+    </script>
+</body>
+</html>

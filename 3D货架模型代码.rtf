@@ -1,0 +1,617 @@
+{\rtf1\ansi\ansicpg936\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red70\green137\blue204;\red23\green24\blue24;\red140\green211\blue254;
+\red202\green202\blue202;\red109\green109\blue109;\red194\green126\blue101;\red212\green212\blue212;\red167\green197\blue152;
+\red109\green115\blue120;\red113\green192\blue131;\red183\green111\blue247;\red246\green124\blue48;\red54\green192\blue160;
+\red76\green167\blue134;}
+{\*\expandedcolortbl;;\cssrgb\c33725\c61176\c83922;\cssrgb\c11765\c12157\c12549;\cssrgb\c61176\c86275\c99608;
+\cssrgb\c83137\c83137\c83137;\cssrgb\c50196\c50196\c50196;\cssrgb\c80784\c56863\c47059;\cssrgb\c86275\c86275\c86275;\cssrgb\c70980\c80784\c65882;
+\cssrgb\c50196\c52549\c54510;\cssrgb\c50588\c78824\c58431;\cssrgb\c77255\c54118\c97647;\cssrgb\c98039\c56471\c24314;\cssrgb\c23922\c78824\c69020;
+\cssrgb\c35686\c70588\c59608;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 <!DOCTYPE\cf4 \strokec4  html\cf2 \strokec2 >\cf5 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+\cf6 \cb3 \strokec6 <\cf2 \strokec2 html\cf5 \strokec5  \cf4 \strokec4 lang\cf6 \strokec6 =\cf7 \strokec7 "zh-CN"\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cf6 \cb3 \strokec6 <\cf2 \strokec2 head\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3     \cf6 \strokec6 <\cf2 \strokec2 meta\cf5 \strokec5  \cf4 \strokec4 charset\cf6 \strokec6 =\cf7 \strokec7 "UTF-8"\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3     \cf6 \strokec6 <\cf2 \strokec2 meta\cf5 \strokec5  \cf4 \strokec4 name\cf6 \strokec6 =\cf7 \strokec7 "viewport"\cf5 \strokec5  \cf4 \strokec4 content\cf6 \strokec6 =\cf7 \strokec7 "width=device-width, initial-scale=1.0"\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3     \cf6 \strokec6 <\cf2 \strokec2 title\cf6 \strokec6 >\cf5 \strokec5 \uc0\u21487 \u37197 \u32622 \u30340 3D\u36135 \u26550 \u21644 2D\u26842 \u26684 \u22270 \u26597 \u30475 \u22120  (\u27627 \u31859 \u21333 \u20301 )\cf6 \strokec6 </\cf2 \strokec2 title\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3     \cf6 \strokec6 <\cf2 \strokec2 style\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 body\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \strokec5  \cf4 \strokec4 margin:\cf5 \strokec5  \cf9 \strokec9 0\cf8 \strokec8 ;\cf5 \strokec5  \cf4 \strokec4 overflow:\cf5 \strokec5  \cf7 \strokec7 hidden\cf8 \strokec8 ;\cf5 \strokec5  \cf4 \strokec4 font-family:\cf5 \strokec5  \cf7 \strokec7 Arial\cf8 \strokec8 ,\cf5 \strokec5  \cf7 \strokec7 sans-serif\cf8 \strokec8 ;\cf5 \strokec5  \cf4 \strokec4 background-color:\cf5 \strokec5  #f0f0f0\cf8 \strokec8 ;\cf5 \strokec5  \cf4 \strokec4 display:\cf5 \strokec5  \cf7 \strokec7 flex\cf8 \strokec8 ;\cf5 \strokec5  \cf4 \strokec4 height:\cf5 \strokec5  \cf9 \strokec9 100vh\cf8 \strokec8 ;\cf5 \strokec5  \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 #main-container\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 display:\cf5 \strokec5  \cf7 \strokec7 flex\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 flex-grow:\cf5 \strokec5  \cf9 \strokec9 1\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 height:\cf5 \strokec5  \cf9 \strokec9 100%\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 #renderer-container\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 flex-grow:\cf5 \strokec5  \cf9 \strokec9 1\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 position:\cf5 \strokec5  \cf7 \strokec7 relative\cf8 \strokec8 ;\cf5 \strokec5  \cb1 \
+\cb3             \cf4 \strokec4 min-width:\cf5 \strokec5  \cf9 \strokec9 0\cf8 \strokec8 ;\cf5 \strokec5  \cb1 \
+\cb3             \cf4 \strokec4 cursor:\cf5 \strokec5  \cf7 \strokec7 grab\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 #renderer-container.grabbing\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3              \cf4 \strokec4 cursor:\cf5 \strokec5  \cf7 \strokec7 grabbing\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 .label\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \strokec5  \cf10 \strokec10 /* Style for 3D labels */\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 color:\cf5 \strokec5  #111\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 font-family:\cf5 \strokec5  \cf7 \strokec7 sans-serif\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 padding:\cf5 \strokec5  \cf9 \strokec9 2px\cf5 \strokec5  \cf9 \strokec9 5px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 background:\cf5 \strokec5  \cf7 \strokec7 rgba(\cf9 \strokec9 255\cf8 \strokec8 ,\cf5 \strokec5  \cf9 \strokec9 255\cf8 \strokec8 ,\cf5 \strokec5  \cf9 \strokec9 255\cf8 \strokec8 ,\cf5 \strokec5  \cf9 \strokec9 0.75\cf7 \strokec7 )\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 border-radius:\cf5 \strokec5  \cf9 \strokec9 4px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 font-size:\cf5 \strokec5  \cf9 \strokec9 12px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 pointer-events:\cf5 \strokec5  \cf7 \strokec7 none\cf8 \strokec8 ;\cf5 \strokec5  \cf10 \strokec10 /* Make sure labels don't block mouse events */\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 #planogram-container\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 width:\cf5 \strokec5  \cf9 \strokec9 350px\cf8 \strokec8 ;\cf5 \strokec5  \cb1 \
+\cb3             \cf4 \strokec4 height:\cf5 \strokec5  \cf9 \strokec9 100%\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 background-color:\cf5 \strokec5  #ffffff\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 border-left:\cf5 \strokec5  \cf9 \strokec9 2px\cf5 \strokec5  \cf7 \strokec7 solid\cf5 \strokec5  #ccc\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 padding:\cf5 \strokec5  \cf9 \strokec9 10px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 box-sizing:\cf5 \strokec5  \cf7 \strokec7 border-box\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 display:\cf5 \strokec5  \cf7 \strokec7 flex\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 flex-direction:\cf5 \strokec5  \cf7 \strokec7 column\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 align-items:\cf5 \strokec5  \cf7 \strokec7 center\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 overflow:\cf5 \strokec5  \cf7 \strokec7 hidden\cf8 \strokec8 ;\cf5 \strokec5  \cb1 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 #planogram-canvas\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 border:\cf5 \strokec5  \cf9 \strokec9 1px\cf5 \strokec5  \cf7 \strokec7 solid\cf5 \strokec5  #b0b0b0\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 max-width:\cf5 \strokec5  \cf9 \strokec9 100%\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 #info\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 position:\cf5 \strokec5  \cf7 \strokec7 absolute\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 top:\cf5 \strokec5  \cf9 \strokec9 10px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 left:\cf5 \strokec5  \cf9 \strokec9 0\cf8 \strokec8 ;\cf5 \strokec5  \cb1 \
+\cb3             \cf4 \strokec4 width:\cf5 \strokec5  \cf9 \strokec9 100%\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 text-align:\cf5 \strokec5  \cf7 \strokec7 center\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 color:\cf5 \strokec5  #333\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 font-size:\cf5 \strokec5  \cf9 \strokec9 16px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 z-index:\cf5 \strokec5  \cf9 \strokec9 10\cf8 \strokec8 ;\cf5 \strokec5  \cb1 \
+\cb3             \cf4 \strokec4 pointer-events:\cf5 \strokec5  \cf7 \strokec7 none\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 #controls-panel\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 position:\cf5 \strokec5  \cf7 \strokec7 absolute\cf8 \strokec8 ;\cf5 \strokec5  \cb1 \
+\cb3             \cf4 \strokec4 top:\cf5 \strokec5  \cf9 \strokec9 50px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 left:\cf5 \strokec5  \cf9 \strokec9 10px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 background:\cf5 \strokec5  #ffffff\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 border:\cf5 \strokec5  \cf9 \strokec9 1px\cf5 \strokec5  \cf7 \strokec7 solid\cf5 \strokec5  #ccc\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 border-radius:\cf5 \strokec5  \cf9 \strokec9 8px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 box-shadow:\cf5 \strokec5  \cf9 \strokec9 0\cf5 \strokec5  \cf9 \strokec9 4px\cf5 \strokec5  \cf9 \strokec9 12px\cf5 \strokec5  \cf7 \strokec7 rgba(\cf9 \strokec9 0\cf8 \strokec8 ,\cf9 \strokec9 0\cf8 \strokec8 ,\cf9 \strokec9 0\cf8 \strokec8 ,\cf9 \strokec9 0.2\cf7 \strokec7 )\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 z-index:\cf5 \strokec5  \cf9 \strokec9 1000\cf8 \strokec8 ;\cf5 \strokec5  \cb1 \
+\cb3             \cf4 \strokec4 width:\cf5 \strokec5  \cf9 \strokec9 350px\cf8 \strokec8 ;\cf5 \strokec5  \cb1 \
+\cb3             \cf4 \strokec4 max-height:\cf5 \strokec5  \cf7 \strokec7 calc(\cf9 \strokec9 100vh\cf5 \strokec5  \cf8 \strokec8 -\cf5 \strokec5  \cf9 \strokec9 70px\cf7 \strokec7 )\cf8 \strokec8 ;\cf5 \strokec5  \cb1 \
+\cb3             \cf4 \strokec4 display:\cf5 \strokec5  \cf7 \strokec7 flex\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 flex-direction:\cf5 \strokec5  \cf7 \strokec7 column\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 #controls-panel-header\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 padding:\cf5 \strokec5  \cf9 \strokec9 10px\cf5 \strokec5  \cf9 \strokec9 15px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 background-color:\cf5 \strokec5  #007bff\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 color:\cf5 \strokec5  \cf7 \strokec7 white\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 border-top-left-radius:\cf5 \strokec5  \cf9 \strokec9 8px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 border-top-right-radius:\cf5 \strokec5  \cf9 \strokec9 8px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 cursor:\cf5 \strokec5  \cf7 \strokec7 move\cf8 \strokec8 ;\cf5 \strokec5  \cb1 \
+\cb3             \cf4 \strokec4 font-size:\cf5 \strokec5  \cf9 \strokec9 16px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 font-weight:\cf5 \strokec5  \cf7 \strokec7 bold\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 text-align:\cf5 \strokec5  \cf7 \strokec7 center\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 flex-shrink:\cf5 \strokec5  \cf9 \strokec9 0\cf8 \strokec8 ;\cf5 \strokec5  \cf10 \strokec10 /* Header should not shrink */\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 #controls-panel-content\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 padding:\cf5 \strokec5  \cf9 \strokec9 15px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 overflow-y:\cf5 \strokec5  \cf7 \strokec7 auto\cf8 \strokec8 ;\cf5 \strokec5  \cf10 \strokec10 /* This will now scroll */\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 flex-grow:\cf5 \strokec5  \cf9 \strokec9 1\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 min-height:\cf5 \strokec5  \cf9 \strokec9 0\cf8 \strokec8 ;\cf5 \strokec5  \cf10 \strokec10 /* Crucial for flex scrolling */\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cb1 \
+\cb3         \cf2 \strokec2 #controls-panel\cf5 \strokec5  \cf2 \strokec2 div.control-group\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 margin-bottom:\cf5 \strokec5  \cf9 \strokec9 12px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 display:\cf5 \strokec5  \cf7 \strokec7 flex\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 justify-content:\cf5 \strokec5  \cf7 \strokec7 space-between\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 align-items:\cf5 \strokec5  \cf7 \strokec7 center\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 #controls-panel\cf5 \strokec5  \cf2 \strokec2 label\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 margin-right:\cf5 \strokec5  \cf9 \strokec9 10px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 color:\cf5 \strokec5  #555\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 font-size:\cf5 \strokec5  \cf9 \strokec9 14px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 flex-shrink:\cf5 \strokec5  \cf9 \strokec9 0\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 #controls-panel\cf5 \strokec5  \cf2 \strokec2 input\cf8 \strokec8 [\cf7 \strokec7 type\cf8 \strokec8 =\cf11 \strokec11 "number"\cf8 \strokec8 ],\cf5 \strokec5  \cf2 \strokec2 #controls-panel\cf5 \strokec5  \cf2 \strokec2 input\cf8 \strokec8 [\cf7 \strokec7 type\cf8 \strokec8 =\cf11 \strokec11 "text"\cf8 \strokec8 ]\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 width:\cf5 \strokec5  \cf9 \strokec9 100px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 padding:\cf5 \strokec5  \cf9 \strokec9 6px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 border:\cf5 \strokec5  \cf9 \strokec9 1px\cf5 \strokec5  \cf7 \strokec7 solid\cf5 \strokec5  #ccc\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 border-radius:\cf5 \strokec5  \cf9 \strokec9 4px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 font-size:\cf5 \strokec5  \cf9 \strokec9 14px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 details.sub-details\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 border:\cf5 \strokec5  \cf9 \strokec9 1px\cf5 \strokec5  \cf7 \strokec7 solid\cf5 \strokec5  #ddd\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 border-radius:\cf5 \strokec5  \cf9 \strokec9 4px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 margin-bottom:\cf5 \strokec5  \cf9 \strokec9 10px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 background:\cf5 \strokec5  #fdfdfd\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 details.sub-details\cf5 \strokec5  \cf8 \strokec8 >\cf5 \strokec5  \cf2 \strokec2 summary\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 padding:\cf5 \strokec5  \cf9 \strokec9 8px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 background-color:\cf5 \strokec5  #f0f2f5\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 cursor:\cf5 \strokec5  \cf7 \strokec7 pointer\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 font-weight:\cf5 \strokec5  \cf7 \strokec7 bold\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 details.sub-details\cf5 \strokec5  \cf8 \strokec8 >\cf5 \strokec5  \cf2 \strokec2 div\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3              \cf4 \strokec4 padding:\cf5 \strokec5  \cf9 \strokec9 10px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3              \cf4 \strokec4 border-top:\cf5 \strokec5  \cf9 \strokec9 1px\cf5 \strokec5  \cf7 \strokec7 solid\cf5 \strokec5  #eee\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\
+\cb3         \cf2 \strokec2 #shelfPositionsContainer\cf8 \strokec8 ,\cf5 \strokec5  \cf2 \strokec2 #export-options\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 margin-top:\cf5 \strokec5  \cf9 \strokec9 15px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 border-top:\cf5 \strokec5  \cf9 \strokec9 1px\cf5 \strokec5  \cf7 \strokec7 dashed\cf5 \strokec5  #ccc\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 padding-top:\cf5 \strokec5  \cf9 \strokec9 10px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 #shelfPositionsContainer\cf5 \strokec5  \cf2 \strokec2 h5\cf8 \strokec8 ,\cf5 \strokec5  \cf2 \strokec2 #export-options\cf5 \strokec5  \cf2 \strokec2 h5\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 margin-top:\cf5 \strokec5  \cf9 \strokec9 0\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 margin-bottom:\cf5 \strokec5  \cf9 \strokec9 8px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 font-size:\cf5 \strokec5  \cf9 \strokec9 14px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 color:\cf5 \strokec5  #444\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 border-bottom:\cf5 \strokec5  \cf9 \strokec9 1px\cf5 \strokec5  \cf7 \strokec7 solid\cf5 \strokec5  #e0e0e0\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 padding-bottom:\cf5 \strokec5  \cf9 \strokec9 5px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 .shelf-details-group\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 background:\cf5 \strokec5  #f9f9f9\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 border:\cf5 \strokec5  \cf9 \strokec9 1px\cf5 \strokec5  \cf7 \strokec7 solid\cf5 \strokec5  #eee\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 border-radius:\cf5 \strokec5  \cf9 \strokec9 4px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 padding:\cf5 \strokec5  \cf9 \strokec9 10px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 margin-bottom:\cf5 \strokec5  \cf9 \strokec9 10px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 .shelf-pos-input-group\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 display:\cf5 \strokec5  \cf7 \strokec7 flex\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 align-items:\cf5 \strokec5  \cf7 \strokec7 center\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 justify-content:\cf5 \strokec5  \cf7 \strokec7 space-between\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 margin-bottom:\cf5 \strokec5  \cf9 \strokec9 8px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 .shelf-pos-input-group\cf5 \strokec5  \cf2 \strokec2 label\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 font-size:\cf5 \strokec5  \cf9 \strokec9 13px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 .shelf-pos-input-group\cf5 \strokec5  \cf2 \strokec2 input\cf8 \strokec8 [\cf7 \strokec7 type\cf8 \strokec8 =\cf11 \strokec11 "number"\cf8 \strokec8 ]\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 width:\cf5 \strokec5  \cf9 \strokec9 90px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 .prop-details-container\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 padding-top:\cf5 \strokec5  \cf9 \strokec9 8px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 margin-top:\cf5 \strokec5  \cf9 \strokec9 8px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 border-top:\cf5 \strokec5  \cf9 \strokec9 1px\cf5 \strokec5  \cf7 \strokec7 solid\cf5 \strokec5  #e0e0e0\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 .prop-item\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 background:\cf5 \strokec5  #fff\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 padding:\cf5 \strokec5  \cf9 \strokec9 8px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 border:\cf5 \strokec5  \cf9 \strokec9 1px\cf5 \strokec5  \cf7 \strokec7 solid\cf5 \strokec5  #ddd\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 border-radius:\cf5 \strokec5  \cf9 \strokec9 4px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 margin-bottom:\cf5 \strokec5  \cf9 \strokec9 8px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 .prop-item-row\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3              \cf4 \strokec4 display:\cf5 \strokec5  \cf7 \strokec7 flex\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3              \cf4 \strokec4 align-items:\cf5 \strokec5  \cf7 \strokec7 center\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3              \cf4 \strokec4 justify-content:\cf5 \strokec5  \cf7 \strokec7 space-between\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3              \cf4 \strokec4 margin-bottom:\cf5 \strokec5  \cf9 \strokec9 5px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3              \cf4 \strokec4 font-size:\cf5 \strokec5  \cf9 \strokec9 12px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 .prop-item-row\cf5 \strokec5  \cf2 \strokec2 label\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \strokec5  \cf4 \strokec4 font-size:\cf5 \strokec5  \cf9 \strokec9 12px\cf8 \strokec8 ;\cf5 \strokec5  \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 .prop-item-row\cf5 \strokec5  \cf2 \strokec2 input\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \strokec5  \cf4 \strokec4 width:\cf5 \strokec5  \cf9 \strokec9 70px\cf5 \strokec5  \cf12 \strokec12 !important\cf8 \strokec8 ;\cf5 \strokec5  \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 .prop-item-row\cf5 \strokec5  \cf2 \strokec2 input\cf8 \strokec8 [\cf7 \strokec7 type\cf8 \strokec8 =\cf11 \strokec11 "text"\cf8 \strokec8 ]\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \strokec5  \cf4 \strokec4 width:\cf5 \strokec5  \cf9 \strokec9 120px\cf5 \strokec5  \cf12 \strokec12 !important\cf8 \strokec8 ;\cf5 \strokec5  \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cb1 \
+\cb3         \cf2 \strokec2 .add-prop-btn\cf8 \strokec8 ,\cf5 \strokec5  \cf2 \strokec2 .remove-prop-btn\cf8 \strokec8 ,\cf5 \strokec5  \cf2 \strokec2 .export-btn\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 font-size:\cf5 \strokec5  \cf9 \strokec9 12px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 padding:\cf5 \strokec5  \cf9 \strokec9 3px\cf5 \strokec5  \cf9 \strokec9 8px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 border-radius:\cf5 \strokec5  \cf9 \strokec9 4px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 border:\cf5 \strokec5  \cf9 \strokec9 1px\cf5 \strokec5  \cf7 \strokec7 solid\cf5 \strokec5  #ccc\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 cursor:\cf5 \strokec5  \cf7 \strokec7 pointer\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 background-color:\cf5 \strokec5  #f0f0f0\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 .remove-prop-btn\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \strokec5  \cf4 \strokec4 background-color:\cf5 \strokec5  #fdd\cf8 \strokec8 ;\cf5 \strokec5  \cf4 \strokec4 margin-left:\cf5 \strokec5  \cf9 \strokec9 5px\cf8 \strokec8 ;\cf5 \strokec5  \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 .add-prop-btn\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \strokec5  \cf4 \strokec4 width:\cf5 \strokec5  \cf9 \strokec9 100%\cf8 \strokec8 ;\cf5 \strokec5  \cf4 \strokec4 margin-top:\cf5 \strokec5  \cf9 \strokec9 5px\cf8 \strokec8 ;\cf5 \strokec5  \cf4 \strokec4 background-color:\cf5 \strokec5  #dfd\cf8 \strokec8 ;\cf5 \strokec5  \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 .export-btn\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \strokec5  \cf4 \strokec4 width:\cf5 \strokec5  \cf9 \strokec9 100%\cf8 \strokec8 ;\cf5 \strokec5  \cf4 \strokec4 margin-bottom:\cf5 \strokec5  \cf9 \strokec9 5px\cf8 \strokec8 ;\cf5 \strokec5  \cf4 \strokec4 background-color:\cf5 \strokec5  #e0e7ff\cf8 \strokec8 ;\}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 #updateButton\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 margin-top:\cf5 \strokec5  \cf9 \strokec9 15px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 padding:\cf5 \strokec5  \cf9 \strokec9 10px\cf5 \strokec5  \cf9 \strokec9 15px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 background-color:\cf5 \strokec5  #4CAF50\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 color:\cf5 \strokec5  \cf7 \strokec7 white\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 border:\cf5 \strokec5  \cf7 \strokec7 none\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 border-radius:\cf5 \strokec5  \cf9 \strokec9 4px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 cursor:\cf5 \strokec5  \cf7 \strokec7 pointer\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 font-size:\cf5 \strokec5  \cf9 \strokec9 14px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 width:\cf5 \strokec5  \cf9 \strokec9 100%\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 #updateButton:hover\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 background-color:\cf5 \strokec5  #45a049\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf2 \strokec2 #planogram-title\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 font-size:\cf5 \strokec5  \cf9 \strokec9 18px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 color:\cf5 \strokec5  #333\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 margin-bottom:\cf5 \strokec5  \cf9 \strokec9 10px\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 text-align:\cf5 \strokec5  \cf7 \strokec7 center\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf4 \strokec4 flex-shrink:\cf5 \strokec5  \cf9 \strokec9 0\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3     \cf6 \strokec6 </\cf2 \strokec2 style\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+\cf6 \cb3 \strokec6 </\cf2 \strokec2 head\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cf6 \cb3 \strokec6 <\cf2 \strokec2 body\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3     \cf6 \strokec6 <\cf2 \strokec2 datalist\cf5 \strokec5  \cf4 \strokec4 id\cf6 \strokec6 =\cf7 \strokec7 "product-names-list"\cf6 \strokec6 ></\cf2 \strokec2 datalist\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\
+\cb3     \cf6 \strokec6 <\cf2 \strokec2 div\cf5 \strokec5  \cf4 \strokec4 id\cf6 \strokec6 =\cf7 \strokec7 "controls-panel"\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3         \cf6 \strokec6 <\cf2 \strokec2 div\cf5 \strokec5  \cf4 \strokec4 id\cf6 \strokec6 =\cf7 \strokec7 "controls-panel-header"\cf6 \strokec6 >\cf5 \strokec5 \uc0\u35774 \u32622 \cf6 \strokec6 </\cf2 \strokec2 div\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3         \cf6 \strokec6 <\cf2 \strokec2 div\cf5 \strokec5  \cf4 \strokec4 id\cf6 \strokec6 =\cf7 \strokec7 "controls-panel-content"\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3             \cf6 \strokec6 <\cf2 \strokec2 details\cf5 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf7 \strokec7 "sub-details"\cf5 \strokec5  \cf4 \strokec4 open\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                 \cf6 \strokec6 <\cf2 \strokec2 summary\cf6 \strokec6 >\cf5 \strokec5 \uc0\u36135 \u26550 \u23610 \u23544 \cf6 \strokec6 </\cf2 \strokec2 summary\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                 \cf6 \strokec6 <\cf2 \strokec2 div\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                      \cf6 \strokec6 <\cf2 \strokec2 div\cf5 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf7 \strokec7 "control-group"\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                         \cf6 \strokec6 <\cf2 \strokec2 label\cf5 \strokec5  \cf4 \strokec4 for\cf6 \strokec6 =\cf7 \strokec7 "shelfHeightInput"\cf6 \strokec6 >\cf5 \strokec5 \uc0\u24635 \u39640 \u24230  (Total Height):\cf6 \strokec6 </\cf2 \strokec2 label\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                         \cf6 \strokec6 <\cf2 \strokec2 input\cf5 \strokec5  \cf4 \strokec4 type\cf6 \strokec6 =\cf7 \strokec7 "number"\cf5 \strokec5  \cf4 \strokec4 id\cf6 \strokec6 =\cf7 \strokec7 "shelfHeightInput"\cf5 \strokec5  \cf4 \strokec4 value\cf6 \strokec6 =\cf7 \strokec7 "2000"\cf5 \strokec5  \cf4 \strokec4 step\cf6 \strokec6 =\cf7 \strokec7 "100"\cf5 \strokec5  \cf4 \strokec4 min\cf6 \strokec6 =\cf7 \strokec7 "500"\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                     \cf6 \strokec6 </\cf2 \strokec2 div\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                     \cf6 \strokec6 <\cf2 \strokec2 div\cf5 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf7 \strokec7 "control-group"\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                         \cf6 \strokec6 <\cf2 \strokec2 label\cf5 \strokec5  \cf4 \strokec4 for\cf6 \strokec6 =\cf7 \strokec7 "shelfWidthInput"\cf6 \strokec6 >\cf5 \strokec5 \uc0\u24635 \u23485 \u24230  (Total Width):\cf6 \strokec6 </\cf2 \strokec2 label\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                         \cf6 \strokec6 <\cf2 \strokec2 input\cf5 \strokec5  \cf4 \strokec4 type\cf6 \strokec6 =\cf7 \strokec7 "number"\cf5 \strokec5  \cf4 \strokec4 id\cf6 \strokec6 =\cf7 \strokec7 "shelfWidthInput"\cf5 \strokec5  \cf4 \strokec4 value\cf6 \strokec6 =\cf7 \strokec7 "1000"\cf5 \strokec5  \cf4 \strokec4 step\cf6 \strokec6 =\cf7 \strokec7 "50"\cf5 \strokec5  \cf4 \strokec4 min\cf6 \strokec6 =\cf7 \strokec7 "300"\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                     \cf6 \strokec6 </\cf2 \strokec2 div\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                 \cf6 \strokec6 </\cf2 \strokec2 div\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3             \cf6 \strokec6 </\cf2 \strokec2 details\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3             \cf6 \strokec6 <\cf2 \strokec2 div\cf5 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf7 \strokec7 "control-group"\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                 \cf6 \strokec6 <\cf2 \strokec2 label\cf5 \strokec5  \cf4 \strokec4 for\cf6 \strokec6 =\cf7 \strokec7 "shelfDepthInput"\cf6 \strokec6 >\cf5 \strokec5 \uc0\u23618 \u26495 \u32437 \u28145  (Plank Depth):\cf6 \strokec6 </\cf2 \strokec2 label\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                 \cf6 \strokec6 <\cf2 \strokec2 input\cf5 \strokec5  \cf4 \strokec4 type\cf6 \strokec6 =\cf7 \strokec7 "number"\cf5 \strokec5  \cf4 \strokec4 id\cf6 \strokec6 =\cf7 \strokec7 "shelfDepthInput"\cf5 \strokec5  \cf4 \strokec4 value\cf6 \strokec6 =\cf7 \strokec7 "400"\cf5 \strokec5  \cf4 \strokec4 step\cf6 \strokec6 =\cf7 \strokec7 "10"\cf5 \strokec5  \cf4 \strokec4 min\cf6 \strokec6 =\cf7 \strokec7 "100"\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3             \cf6 \strokec6 </\cf2 \strokec2 div\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3             \cf6 \strokec6 <\cf2 \strokec2 div\cf5 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf7 \strokec7 "control-group"\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                 \cf6 \strokec6 <\cf2 \strokec2 label\cf5 \strokec5  \cf4 \strokec4 for\cf6 \strokec6 =\cf7 \strokec7 "numShelvesInput"\cf6 \strokec6 >\cf5 \strokec5 \uc0\u23618 \u26495 \u25968  (Planks):\cf6 \strokec6 </\cf2 \strokec2 label\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                 \cf6 \strokec6 <\cf2 \strokec2 input\cf5 \strokec5  \cf4 \strokec4 type\cf6 \strokec6 =\cf7 \strokec7 "number"\cf5 \strokec5  \cf4 \strokec4 id\cf6 \strokec6 =\cf7 \strokec7 "numShelvesInput"\cf5 \strokec5  \cf4 \strokec4 value\cf6 \strokec6 =\cf7 \strokec7 "5"\cf5 \strokec5  \cf4 \strokec4 step\cf6 \strokec6 =\cf7 \strokec7 "1"\cf5 \strokec5  \cf4 \strokec4 min\cf6 \strokec6 =\cf7 \strokec7 "1"\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3             \cf6 \strokec6 </\cf2 \strokec2 div\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3             \cf6 \strokec6 <\cf2 \strokec2 div\cf5 \strokec5  \cf4 \strokec4 id\cf6 \strokec6 =\cf7 \strokec7 "shelfPositionsContainer"\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                 \cf6 \strokec6 <\cf2 \strokec2 h5\cf6 \strokec6 >\cf5 \strokec5 \uc0\u21508 \u23618 \u26495 \u35814 \u24773  (Shelf Details):\cf6 \strokec6 </\cf2 \strokec2 h5\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3             \cf6 \strokec6 </\cf2 \strokec2 div\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3             \cf6 \strokec6 <\cf2 \strokec2 button\cf5 \strokec5  \cf4 \strokec4 id\cf6 \strokec6 =\cf7 \strokec7 "updateButton"\cf6 \strokec6 >\cf5 \strokec5 \uc0\u26356 \u26032 \u35270 \u22270  (Update View)\cf6 \strokec6 </\cf2 \strokec2 button\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\
+\cb3             \cf6 \strokec6 <\cf2 \strokec2 details\cf5 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf7 \strokec7 "sub-details"\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                 \cf6 \strokec6 <\cf2 \strokec2 summary\cf6 \strokec6 >\cf5 \strokec5 \uc0\u23548 \u20986 \u36873 \u39033 \cf6 \strokec6 </\cf2 \strokec2 summary\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                 \cf6 \strokec6 <\cf2 \strokec2 div\cf5 \strokec5  \cf4 \strokec4 id\cf6 \strokec6 =\cf7 \strokec7 "export-options"\cf5 \strokec5  \cf4 \strokec4 style\cf6 \strokec6 =\cf7 \strokec7 "border-top: none; margin-top: 0; padding-top: 10px;"\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                     \cf6 \strokec6 <\cf2 \strokec2 button\cf5 \strokec5  \cf4 \strokec4 id\cf6 \strokec6 =\cf7 \strokec7 "exportJpgBtn"\cf5 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf7 \strokec7 "export-btn"\cf6 \strokec6 >\cf5 \strokec5 \uc0\u23548 \u20986 3D\u20026  JPG\cf6 \strokec6 </\cf2 \strokec2 button\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                     \cf6 \strokec6 <\cf2 \strokec2 button\cf5 \strokec5  \cf4 \strokec4 id\cf6 \strokec6 =\cf7 \strokec7 "exportPngBtn"\cf5 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf7 \strokec7 "export-btn"\cf6 \strokec6 >\cf5 \strokec5 \uc0\u23548 \u20986 3D\u20026  PNG\cf6 \strokec6 </\cf2 \strokec2 button\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                     \cf6 \strokec6 <\cf2 \strokec2 button\cf5 \strokec5  \cf4 \strokec4 id\cf6 \strokec6 =\cf7 \strokec7 "export3DPdfBtn"\cf5 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf7 \strokec7 "export-btn"\cf6 \strokec6 >\cf5 \strokec5 \uc0\u23548 \u20986 3D\u20026  PDF\cf6 \strokec6 </\cf2 \strokec2 button\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                     \cf6 \strokec6 <\cf2 \strokec2 button\cf5 \strokec5  \cf4 \strokec4 id\cf6 \strokec6 =\cf7 \strokec7 "exportPlanogramPdfBtn"\cf5 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf7 \strokec7 "export-btn"\cf6 \strokec6 >\cf5 \strokec5 \uc0\u23548 \u20986 \u26842 \u26684 \u22270 \u20026  PDF\cf6 \strokec6 </\cf2 \strokec2 button\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3                 \cf6 \strokec6 </\cf2 \strokec2 div\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3             \cf6 \strokec6 </\cf2 \strokec2 details\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3         \cf6 \strokec6 </\cf2 \strokec2 div\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3     \cf6 \strokec6 </\cf2 \strokec2 div\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\
+\cb3     \cf6 \strokec6 <\cf2 \strokec2 div\cf5 \strokec5  \cf4 \strokec4 id\cf6 \strokec6 =\cf7 \strokec7 "main-container"\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3         \cf6 \strokec6 <\cf2 \strokec2 div\cf5 \strokec5  \cf4 \strokec4 id\cf6 \strokec6 =\cf7 \strokec7 "renderer-container"\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3             \cf6 \strokec6 <\cf2 \strokec2 div\cf5 \strokec5  \cf4 \strokec4 id\cf6 \strokec6 =\cf7 \strokec7 "info"\cf6 \strokec6 >\cf5 \strokec5 \uc0\u20351 \u29992 \u40736 \u26631 \u24038 \u38190 \u26059 \u36716 \u65292 \u28378 \u36718 \u32553 \u25918 \u65292 \u21491 \u38190 \u24179 \u31227 \u12290 \cf6 \strokec6 </\cf2 \strokec2 div\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3         \cf6 \strokec6 </\cf2 \strokec2 div\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3         \cf6 \strokec6 <\cf2 \strokec2 div\cf5 \strokec5  \cf4 \strokec4 id\cf6 \strokec6 =\cf7 \strokec7 "planogram-container"\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3             \cf6 \strokec6 <\cf2 \strokec2 h4\cf5 \strokec5  \cf4 \strokec4 id\cf6 \strokec6 =\cf7 \strokec7 "planogram-title"\cf6 \strokec6 >\cf5 \strokec5 \uc0\u24179 \u38754 \u26842 \u26684 \u22270  (Planogram)\cf6 \strokec6 </\cf2 \strokec2 h4\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3             \cf6 \strokec6 <\cf2 \strokec2 canvas\cf5 \strokec5  \cf4 \strokec4 id\cf6 \strokec6 =\cf7 \strokec7 "planogram-canvas"\cf6 \strokec6 ></\cf2 \strokec2 canvas\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3         \cf6 \strokec6 </\cf2 \strokec2 div\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3     \cf6 \strokec6 </\cf2 \strokec2 div\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\
+\cb3     \cf6 \strokec6 <\cf2 \strokec2 script\cf5 \strokec5  \cf4 \strokec4 src\cf6 \strokec6 =\cf7 \strokec7 "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"\cf6 \strokec6 ></\cf2 \strokec2 script\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3     \cf6 \strokec6 <\cf2 \strokec2 script\cf5 \strokec5  \cf4 \strokec4 src\cf6 \strokec6 =\cf7 \strokec7 "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"\cf6 \strokec6 ></\cf2 \strokec2 script\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3     \cf6 \strokec6 <\cf2 \strokec2 script\cf5 \strokec5  \cf4 \strokec4 src\cf6 \strokec6 =\cf7 \strokec7 "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/renderers/CSS2DRenderer.js"\cf6 \strokec6 ></\cf2 \strokec2 script\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3     \cf6 \strokec6 <\cf2 \strokec2 script\cf5 \strokec5  \cf4 \strokec4 src\cf6 \strokec6 =\cf7 \strokec7 "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"\cf6 \strokec6 ></\cf2 \strokec2 script\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3     \cf6 \strokec6 <\cf2 \strokec2 script\cf5 \strokec5  \cf4 \strokec4 src\cf6 \strokec6 =\cf7 \strokec7 "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"\cf6 \strokec6 ></\cf2 \strokec2 script\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3     \cf6 \strokec6 <\cf2 \strokec2 script\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cb3         \cf12 \strokec12 let\cf5 \strokec5  scene\cf8 \strokec8 ,\cf5 \strokec5  camera\cf8 \strokec8 ,\cf5 \strokec5  renderer\cf8 \strokec8 ,\cf5 \strokec5  controls\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf12 \strokec12 let\cf5 \strokec5  labelRenderer\cf8 \strokec8 ;\cf5 \strokec5  \cb1 \
+\cb3         \cf12 \strokec12 let\cf5 \strokec5  shelfGroup\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cf12 \strokec12 let\cf5 \strokec5  planogramCanvas\cf8 \strokec8 ,\cf5 \strokec5  planogramCtx\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3         \cb1 \
+\cb3         \cf12 \strokec12 const\cf5 \strokec5  rendererContainer \cf8 \strokec8 =\cf5 \strokec5  document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 'renderer-container'\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\
+\cb3         \cf12 \strokec12 let\cf5 \strokec5  currentShelfParams \cf8 \strokec8 =\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             shelfHeight\cf8 \strokec8 :\cf5 \strokec5  \cf13 \strokec13 2000\cf8 \strokec8 ,\cf5 \cb1 \strokec5 \
+\cb3             shelfUnitWidth\cf8 \strokec8 :\cf5 \strokec5  \cf13 \strokec13 1000\cf8 \strokec8 ,\cf5 \cb1 \strokec5 \
+\cb3             shelfDepth\cf8 \strokec8 :\cf5 \strokec5  \cf13 \strokec13 400\cf8 \strokec8 ,\cf5 \strokec5  \cb1 \
+\cb3             numShelves\cf8 \strokec8 :\cf5 \strokec5  \cf13 \strokec13 5\cf8 \strokec8 ,\cf5 \cb1 \strokec5 \
+\cb3             shelfDetails\cf8 \strokec8 :\cf5 \strokec5  \cf8 \strokec8 [],\cf5 \strokec5  \cb1 \
+\cb3             basePlankDepth\cf8 \strokec8 :\cf5 \strokec5  \cf13 \strokec13 650\cf8 \strokec8 ,\cf5 \strokec5  \cb1 \
+\cb3             backPanelThickness\cf8 \strokec8 :\cf5 \strokec5  \cf13 \strokec13 40\cf8 \strokec8 ,\cf5 \cb1 \strokec5 \
+\cb3             plankThickness\cf8 \strokec8 :\cf5 \strokec5  \cf13 \strokec13 20\cf8 \strokec8 ,\cf5 \cb1 \strokec5 \
+\cb3             plankLipHeight\cf8 \strokec8 :\cf5 \strokec5  \cf13 \strokec13 25\cf8 \strokec8 ,\cf5 \cb1 \strokec5 \
+\cb3             bracketThickness\cf8 \strokec8 :\cf5 \strokec5  \cf13 \strokec13 15\cf8 \strokec8 ,\cf5 \cb1 \strokec5 \
+\cb3             bracketHeight\cf8 \strokec8 :\cf5 \strokec5  \cf13 \strokec13 60\cf8 \strokec8 ,\cf5 \cb1 \strokec5 \
+\cb3             baseShelfOffset\cf8 \strokec8 :\cf5 \strokec5  \cf13 \strokec13 50\cf8 \strokec8 ,\cf5 \strokec5  \cb1 \
+\cb3         \cf8 \strokec8 \};\cf5 \cb1 \strokec5 \
+\
+\cb3         \cf12 \strokec12 const\cf5 \strokec5  planogramPadding \cf8 \strokec8 =\cf5 \strokec5  \cf13 \strokec13 20\cf8 \strokec8 ;\cf5 \strokec5  \cb1 \
+\cb3         \cf12 \strokec12 const\cf5 \strokec5  pillarSlotHeight \cf8 \strokec8 =\cf5 \strokec5  \cf13 \strokec13 50\cf8 \strokec8 ;\cf5 \strokec5  \cb1 \
+\cb3         \cf12 \strokec12 const\cf5 \strokec5  pillarSlotWidth \cf8 \strokec8 =\cf5 \strokec5  \cf13 \strokec13 20\cf8 \strokec8 ;\cf5 \strokec5   \cb1 \
+\
+\cb3         \cf12 \strokec12 function\cf5 \strokec5  init\cf8 \strokec8 ()\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             scene \cf8 \strokec8 =\cf5 \strokec5  \cf12 \strokec12 new\cf5 \strokec5  \cf14 \strokec14 THREE\cf8 \strokec8 .\cf14 \strokec14 Scene\cf8 \strokec8 ();\cf5 \cb1 \strokec5 \
+\cb3             scene\cf8 \strokec8 .\cf5 \strokec5 background \cf8 \strokec8 =\cf5 \strokec5  \cf12 \strokec12 new\cf5 \strokec5  \cf14 \strokec14 THREE\cf8 \strokec8 .\cf14 \strokec14 Color\cf8 \strokec8 (\cf15 \strokec15 0xe0e0e0\cf8 \strokec8 );\cf5 \strokec5  \cb1 \
+\cb3             camera \cf8 \strokec8 =\cf5 \strokec5  \cf12 \strokec12 new\cf5 \strokec5  \cf14 \strokec14 THREE\cf8 \strokec8 .\cf14 \strokec14 PerspectiveCamera\cf8 \strokec8 (\cf13 \strokec13 50\cf8 \strokec8 ,\cf5 \strokec5  rendererContainer\cf8 \strokec8 .\cf5 \strokec5 clientWidth \cf8 \strokec8 /\cf5 \strokec5  rendererContainer\cf8 \strokec8 .\cf5 \strokec5 clientHeight\cf8 \strokec8 ,\cf5 \strokec5  \cf13 \strokec13 10\cf8 \strokec8 ,\cf5 \strokec5  \cf13 \strokec13 10000\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             \cf12 \strokec12 const\cf5 \strokec5  avgDepth \cf8 \strokec8 =\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 shelfDepth \cf8 \strokec8 +\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 basePlankDepth\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 /\cf5 \strokec5  \cf13 \strokec13 2\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             camera\cf8 \strokec8 .\cf5 \strokec5 position\cf8 \strokec8 .\cf12 \strokec12 set\cf8 \strokec8 (\cf5 \strokec5 currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 shelfUnitWidth \cf8 \strokec8 *\cf5 \strokec5  \cf13 \strokec13 1.5\cf8 \strokec8 ,\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 shelfHeight \cf8 \strokec8 *\cf5 \strokec5  \cf13 \strokec13 0.75\cf8 \strokec8 ,\cf5 \strokec5  avgDepth \cf8 \strokec8 *\cf5 \strokec5  \cf13 \strokec13 5\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             \cb1 \
+\cb3             renderer \cf8 \strokec8 =\cf5 \strokec5  \cf12 \strokec12 new\cf5 \strokec5  \cf14 \strokec14 THREE\cf8 \strokec8 .\cf14 \strokec14 WebGLRenderer\cf8 \strokec8 (\{\cf5 \strokec5  antialias\cf8 \strokec8 :\cf5 \strokec5  \cf12 \strokec12 true\cf8 \strokec8 ,\cf5 \strokec5  preserveDrawingBuffer\cf8 \strokec8 :\cf5 \strokec5  \cf12 \strokec12 true\cf5 \strokec5  \cf8 \strokec8 \});\cf5 \strokec5  \cb1 \
+\cb3             renderer\cf8 \strokec8 .\cf5 \strokec5 setPixelRatio\cf8 \strokec8 (\cf5 \strokec5 window\cf8 \strokec8 .\cf5 \strokec5 devicePixelRatio\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             renderer\cf8 \strokec8 .\cf5 \strokec5 shadowMap\cf8 \strokec8 .\cf5 \strokec5 enabled \cf8 \strokec8 =\cf5 \strokec5  \cf12 \strokec12 true\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             renderer\cf8 \strokec8 .\cf5 \strokec5 shadowMap\cf8 \strokec8 .\cf5 \strokec5 type \cf8 \strokec8 =\cf5 \strokec5  \cf14 \strokec14 THREE\cf8 \strokec8 .\cf14 \strokec14 PCFSoftShadowMap\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             rendererContainer\cf8 \strokec8 .\cf5 \strokec5 appendChild\cf8 \strokec8 (\cf5 \strokec5 renderer\cf8 \strokec8 .\cf5 \strokec5 domElement\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\
+\cb3             labelRenderer \cf8 \strokec8 =\cf5 \strokec5  \cf12 \strokec12 new\cf5 \strokec5  \cf14 \strokec14 THREE\cf8 \strokec8 .\cf14 \strokec14 CSS2DRenderer\cf8 \strokec8 ();\cf5 \cb1 \strokec5 \
+\cb3             labelRenderer\cf8 \strokec8 .\cf5 \strokec5 domElement\cf8 \strokec8 .\cf5 \strokec5 style\cf8 \strokec8 .\cf5 \strokec5 position \cf8 \strokec8 =\cf5 \strokec5  \cf11 \strokec11 'absolute'\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             labelRenderer\cf8 \strokec8 .\cf5 \strokec5 domElement\cf8 \strokec8 .\cf5 \strokec5 style\cf8 \strokec8 .\cf5 \strokec5 top \cf8 \strokec8 =\cf5 \strokec5  \cf11 \strokec11 '0px'\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             labelRenderer\cf8 \strokec8 .\cf5 \strokec5 domElement\cf8 \strokec8 .\cf5 \strokec5 style\cf8 \strokec8 .\cf5 \strokec5 pointerEvents \cf8 \strokec8 =\cf5 \strokec5  \cf11 \strokec11 'none'\cf8 \strokec8 ;\cf5 \strokec5  \cb1 \
+\cb3             rendererContainer\cf8 \strokec8 .\cf5 \strokec5 appendChild\cf8 \strokec8 (\cf5 \strokec5 labelRenderer\cf8 \strokec8 .\cf5 \strokec5 domElement\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\
+\cb3             \cf12 \strokec12 const\cf5 \strokec5  ambientLight \cf8 \strokec8 =\cf5 \strokec5  \cf12 \strokec12 new\cf5 \strokec5  \cf14 \strokec14 THREE\cf8 \strokec8 .\cf14 \strokec14 AmbientLight\cf8 \strokec8 (\cf15 \strokec15 0xffffff\cf8 \strokec8 ,\cf5 \strokec5  \cf13 \strokec13 0.8\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             scene\cf8 \strokec8 .\cf5 \strokec5 add\cf8 \strokec8 (\cf5 \strokec5 ambientLight\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             \cf12 \strokec12 const\cf5 \strokec5  directionalLight \cf8 \strokec8 =\cf5 \strokec5  \cf12 \strokec12 new\cf5 \strokec5  \cf14 \strokec14 THREE\cf8 \strokec8 .\cf14 \strokec14 DirectionalLight\cf8 \strokec8 (\cf15 \strokec15 0xffffff\cf8 \strokec8 ,\cf5 \strokec5  \cf13 \strokec13 1.0\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             directionalLight\cf8 \strokec8 .\cf5 \strokec5 position\cf8 \strokec8 .\cf12 \strokec12 set\cf8 \strokec8 (\cf5 \strokec5 currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 shelfUnitWidth\cf8 \strokec8 ,\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 shelfHeight\cf8 \strokec8 ,\cf5 \strokec5  avgDepth \cf8 \strokec8 *\cf5 \strokec5  \cf13 \strokec13 3\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             directionalLight\cf8 \strokec8 .\cf5 \strokec5 castShadow \cf8 \strokec8 =\cf5 \strokec5  \cf12 \strokec12 true\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             scene\cf8 \strokec8 .\cf5 \strokec5 add\cf8 \strokec8 (\cf5 \strokec5 directionalLight\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             \cb1 \
+\cb3             document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 'shelfHeightInput'\cf8 \strokec8 ).\cf5 \strokec5 value \cf8 \strokec8 =\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 shelfHeight\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 'shelfWidthInput'\cf8 \strokec8 ).\cf5 \strokec5 value \cf8 \strokec8 =\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 shelfUnitWidth\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 'shelfDepthInput'\cf8 \strokec8 ).\cf5 \strokec5 value \cf8 \strokec8 =\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 shelfDepth\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 'numShelvesInput'\cf8 \strokec8 ).\cf5 \strokec5 value \cf8 \strokec8 =\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 numShelves\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             updateShelfDetailsInputs\cf8 \strokec8 (\cf5 \strokec5 currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 numShelves\cf8 \strokec8 ,\cf5 \strokec5  \cf12 \strokec12 true\cf8 \strokec8 );\cf5 \strokec5  \cb1 \
+\cb3             \cb1 \
+\cb3             controls \cf8 \strokec8 =\cf5 \strokec5  \cf12 \strokec12 new\cf5 \strokec5  \cf14 \strokec14 THREE\cf8 \strokec8 .\cf14 \strokec14 OrbitControls\cf8 \strokec8 (\cf5 \strokec5 camera\cf8 \strokec8 ,\cf5 \strokec5  renderer\cf8 \strokec8 .\cf5 \strokec5 domElement\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             controls\cf8 \strokec8 .\cf5 \strokec5 enableDamping \cf8 \strokec8 =\cf5 \strokec5  \cf12 \strokec12 true\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\
+\cb3             planogramCanvas \cf8 \strokec8 =\cf5 \strokec5  document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 'planogram-canvas'\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             planogramCtx \cf8 \strokec8 =\cf5 \strokec5  planogramCanvas\cf8 \strokec8 .\cf5 \strokec5 getContext\cf8 \strokec8 (\cf11 \strokec11 '2d'\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             makeDraggable\cf8 \strokec8 (\cf5 \strokec5 document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 'controls-panel'\cf8 \strokec8 ),\cf5 \strokec5  document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 'controls-panel-header'\cf8 \strokec8 ));\cf5 \cb1 \strokec5 \
+\
+\cb3             regenerateFromData\cf8 \strokec8 (\cf12 \strokec12 false\cf8 \strokec8 );\cf5 \strokec5  \cb1 \
+\
+\cb3             window\cf8 \strokec8 .\cf5 \strokec5 addEventListener\cf8 \strokec8 (\cf11 \strokec11 'resize'\cf8 \strokec8 ,\cf5 \strokec5  onWindowResize\cf8 \strokec8 ,\cf5 \strokec5  \cf12 \strokec12 false\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 'updateButton'\cf8 \strokec8 ).\cf5 \strokec5 addEventListener\cf8 \strokec8 (\cf11 \strokec11 'click'\cf8 \strokec8 ,\cf5 \strokec5  \cf8 \strokec8 ()\cf5 \strokec5  \cf8 \strokec8 =>\cf5 \strokec5  regenerateFromData\cf8 \strokec8 (\cf12 \strokec12 true\cf8 \strokec8 ));\cf5 \cb1 \strokec5 \
+\cb3             document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 'numShelvesInput'\cf8 \strokec8 ).\cf5 \strokec5 addEventListener\cf8 \strokec8 (\cf11 \strokec11 'change'\cf8 \strokec8 ,\cf5 \strokec5  \cf8 \strokec8 ()\cf5 \strokec5  \cf8 \strokec8 =>\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 const\cf5 \strokec5  newNum \cf8 \strokec8 =\cf5 \strokec5  parseInt\cf8 \strokec8 (\cf5 \strokec5 document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 'numShelvesInput'\cf8 \strokec8 ).\cf5 \strokec5 value\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 ||\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 numShelves\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 collectShelfDetails\cf8 \strokec8 ();\cf5 \cb1 \strokec5 \
+\cb3                 updateShelfDetailsInputs\cf8 \strokec8 (\cf5 \strokec5 newNum\cf8 \strokec8 ,\cf5 \strokec5  \cf12 \strokec12 true\cf8 \strokec8 );\cf5 \strokec5  \cb1 \
+\cb3             \cf8 \strokec8 \});\cf5 \cb1 \strokec5 \
+\
+\cb3             document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 'exportJpgBtn'\cf8 \strokec8 ).\cf5 \strokec5 addEventListener\cf8 \strokec8 (\cf11 \strokec11 'click'\cf8 \strokec8 ,\cf5 \strokec5  \cf8 \strokec8 ()\cf5 \strokec5  \cf8 \strokec8 =>\cf5 \strokec5  export3DAsImage\cf8 \strokec8 (\cf11 \strokec11 'image/jpeg'\cf8 \strokec8 ));\cf5 \cb1 \strokec5 \
+\cb3             document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 'exportPngBtn'\cf8 \strokec8 ).\cf5 \strokec5 addEventListener\cf8 \strokec8 (\cf11 \strokec11 'click'\cf8 \strokec8 ,\cf5 \strokec5  \cf8 \strokec8 ()\cf5 \strokec5  \cf8 \strokec8 =>\cf5 \strokec5  export3DAsImage\cf8 \strokec8 (\cf11 \strokec11 'image/png'\cf8 \strokec8 ));\cf5 \cb1 \strokec5 \
+\cb3             document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 'export3DPdfBtn'\cf8 \strokec8 ).\cf5 \strokec5 addEventListener\cf8 \strokec8 (\cf11 \strokec11 'click'\cf8 \strokec8 ,\cf5 \strokec5  export3DAsPDF\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 'exportPlanogramPdfBtn'\cf8 \strokec8 ).\cf5 \strokec5 addEventListener\cf8 \strokec8 (\cf11 \strokec11 'click'\cf8 \strokec8 ,\cf5 \strokec5  exportPlanogramAsPDF\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\
+\cb3             onWindowResize\cf8 \strokec8 ();\cf5 \strokec5  \cb1 \
+\cb3             animate\cf8 \strokec8 ();\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cb1 \
+\cb3         \cf12 \strokec12 function\cf5 \strokec5  makeDraggable\cf8 \strokec8 (\cf5 \strokec5 element\cf8 \strokec8 ,\cf5 \strokec5  handle\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf12 \strokec12 let\cf5 \strokec5  isDragging \cf8 \strokec8 =\cf5 \strokec5  \cf12 \strokec12 false\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf12 \strokec12 let\cf5 \strokec5  offsetX\cf8 \strokec8 ,\cf5 \strokec5  offsetY\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             handle\cf8 \strokec8 .\cf5 \strokec5 addEventListener\cf8 \strokec8 (\cf11 \strokec11 'mousedown'\cf8 \strokec8 ,\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 e\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 =>\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 if\cf8 \strokec8 (\cf5 \strokec5 e\cf8 \strokec8 .\cf5 \strokec5 target \cf8 \strokec8 !==\cf5 \strokec5  handle\cf8 \strokec8 )\cf5 \strokec5  \cf12 \strokec12 return\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 isDragging \cf8 \strokec8 =\cf5 \strokec5  \cf12 \strokec12 true\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 offsetX \cf8 \strokec8 =\cf5 \strokec5  e\cf8 \strokec8 .\cf5 \strokec5 clientX \cf8 \strokec8 -\cf5 \strokec5  element\cf8 \strokec8 .\cf5 \strokec5 getBoundingClientRect\cf8 \strokec8 ().\cf5 \strokec5 left\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 offsetY \cf8 \strokec8 =\cf5 \strokec5  e\cf8 \strokec8 .\cf5 \strokec5 clientY \cf8 \strokec8 -\cf5 \strokec5  element\cf8 \strokec8 .\cf5 \strokec5 getBoundingClientRect\cf8 \strokec8 ().\cf5 \strokec5 top\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 element\cf8 \strokec8 .\cf5 \strokec5 style\cf8 \strokec8 .\cf5 \strokec5 userSelect \cf8 \strokec8 =\cf5 \strokec5  \cf11 \strokec11 'none'\cf8 \strokec8 ;\cf5 \strokec5  \cb1 \
+\cb3             \cf8 \strokec8 \});\cf5 \cb1 \strokec5 \
+\cb3             document\cf8 \strokec8 .\cf5 \strokec5 addEventListener\cf8 \strokec8 (\cf11 \strokec11 'mousemove'\cf8 \strokec8 ,\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 e\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 =>\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (!\cf5 \strokec5 isDragging\cf8 \strokec8 )\cf5 \strokec5  \cf12 \strokec12 return\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 let\cf5 \strokec5  newX \cf8 \strokec8 =\cf5 \strokec5  e\cf8 \strokec8 .\cf5 \strokec5 clientX \cf8 \strokec8 -\cf5 \strokec5  offsetX\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 let\cf5 \strokec5  newY \cf8 \strokec8 =\cf5 \strokec5  e\cf8 \strokec8 .\cf5 \strokec5 clientY \cf8 \strokec8 -\cf5 \strokec5  offsetY\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 const\cf5 \strokec5  viewportWidth \cf8 \strokec8 =\cf5 \strokec5  window\cf8 \strokec8 .\cf5 \strokec5 innerWidth\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 const\cf5 \strokec5  viewportHeight \cf8 \strokec8 =\cf5 \strokec5  window\cf8 \strokec8 .\cf5 \strokec5 innerHeight\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 const\cf5 \strokec5  panelWidth \cf8 \strokec8 =\cf5 \strokec5  element\cf8 \strokec8 .\cf5 \strokec5 offsetWidth\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 const\cf5 \strokec5  panelHeight \cf8 \strokec8 =\cf5 \strokec5  element\cf8 \strokec8 .\cf5 \strokec5 offsetHeight\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 newX \cf8 \strokec8 <\cf5 \strokec5  \cf13 \strokec13 0\cf8 \strokec8 )\cf5 \strokec5  newX \cf8 \strokec8 =\cf5 \strokec5  \cf13 \strokec13 0\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 newY \cf8 \strokec8 <\cf5 \strokec5  \cf13 \strokec13 0\cf8 \strokec8 )\cf5 \strokec5  newY \cf8 \strokec8 =\cf5 \strokec5  \cf13 \strokec13 0\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 newX \cf8 \strokec8 +\cf5 \strokec5  panelWidth \cf8 \strokec8 >\cf5 \strokec5  viewportWidth\cf8 \strokec8 )\cf5 \strokec5  newX \cf8 \strokec8 =\cf5 \strokec5  viewportWidth \cf8 \strokec8 -\cf5 \strokec5  panelWidth\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 newY \cf8 \strokec8 +\cf5 \strokec5  panelHeight \cf8 \strokec8 >\cf5 \strokec5  viewportHeight\cf8 \strokec8 )\cf5 \strokec5  newY \cf8 \strokec8 =\cf5 \strokec5  viewportHeight \cf8 \strokec8 -\cf5 \strokec5  panelHeight\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 element\cf8 \strokec8 .\cf5 \strokec5 style\cf8 \strokec8 .\cf5 \strokec5 left \cf8 \strokec8 =\cf5 \strokec5  newX \cf8 \strokec8 +\cf5 \strokec5  \cf11 \strokec11 'px'\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 element\cf8 \strokec8 .\cf5 \strokec5 style\cf8 \strokec8 .\cf5 \strokec5 top \cf8 \strokec8 =\cf5 \strokec5  newY \cf8 \strokec8 +\cf5 \strokec5  \cf11 \strokec11 'px'\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf8 \strokec8 \});\cf5 \cb1 \strokec5 \
+\cb3             document\cf8 \strokec8 .\cf5 \strokec5 addEventListener\cf8 \strokec8 (\cf11 \strokec11 'mouseup'\cf8 \strokec8 ,\cf5 \strokec5  \cf8 \strokec8 ()\cf5 \strokec5  \cf8 \strokec8 =>\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 isDragging\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                     isDragging \cf8 \strokec8 =\cf5 \strokec5  \cf12 \strokec12 false\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                     element\cf8 \strokec8 .\cf5 \strokec5 style\cf8 \strokec8 .\cf5 \strokec5 userSelect \cf8 \strokec8 =\cf5 \strokec5  \cf11 \strokec11 'auto'\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3             \cf8 \strokec8 \});\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\
+\cb3         \cf12 \strokec12 function\cf5 \strokec5  setupPlanogramCanvas\cf8 \strokec8 ()\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf12 \strokec12 const\cf5 \strokec5  container \cf8 \strokec8 =\cf5 \strokec5  document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 'planogram-container'\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             \cf12 \strokec12 const\cf5 \strokec5  titleElement \cf8 \strokec8 =\cf5 \strokec5  document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 'planogram-title'\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             \cf12 \strokec12 const\cf5 \strokec5  containerPadding \cf8 \strokec8 =\cf5 \strokec5  \cf13 \strokec13 10\cf8 \strokec8 ;\cf5 \strokec5  \cb1 \
+\cb3             \cf12 \strokec12 const\cf5 \strokec5  titleHeight \cf8 \strokec8 =\cf5 \strokec5  titleElement \cf8 \strokec8 ?\cf5 \strokec5  titleElement\cf8 \strokec8 .\cf5 \strokec5 offsetHeight \cf8 \strokec8 +\cf5 \strokec5  parseInt\cf8 \strokec8 (\cf5 \strokec5 window\cf8 \strokec8 .\cf5 \strokec5 getComputedStyle\cf8 \strokec8 (\cf5 \strokec5 titleElement\cf8 \strokec8 ).\cf5 \strokec5 marginBottom\cf8 \strokec8 ,\cf5 \strokec5  \cf13 \strokec13 10\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 :\cf5 \strokec5  \cf13 \strokec13 0\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf12 \strokec12 const\cf5 \strokec5  availableWidth \cf8 \strokec8 =\cf5 \strokec5  container\cf8 \strokec8 .\cf5 \strokec5 clientWidth \cf8 \strokec8 -\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 containerPadding \cf8 \strokec8 *\cf5 \strokec5  \cf13 \strokec13 2\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             \cf12 \strokec12 const\cf5 \strokec5  availableHeight \cf8 \strokec8 =\cf5 \strokec5  container\cf8 \strokec8 .\cf5 \strokec5 clientHeight \cf8 \strokec8 -\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 containerPadding \cf8 \strokec8 *\cf5 \strokec5  \cf13 \strokec13 2\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 -\cf5 \strokec5  titleHeight\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 availableWidth \cf8 \strokec8 <=\cf5 \strokec5  \cf13 \strokec13 0\cf5 \strokec5  \cf8 \strokec8 ||\cf5 \strokec5  availableHeight \cf8 \strokec8 <=\cf5 \strokec5  \cf13 \strokec13 0\cf8 \strokec8 )\cf5 \strokec5  \cf12 \strokec12 return\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf12 \strokec12 const\cf5 \strokec5  innerWidth \cf8 \strokec8 =\cf5 \strokec5  availableWidth \cf8 \strokec8 -\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 planogramPadding \cf8 \strokec8 *\cf5 \strokec5  \cf13 \strokec13 2\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 -\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 pillarSlotWidth \cf8 \strokec8 *\cf5 \strokec5  \cf13 \strokec13 2\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             \cf12 \strokec12 const\cf5 \strokec5  innerHeight \cf8 \strokec8 =\cf5 \strokec5  availableHeight \cf8 \strokec8 -\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 planogramPadding \cf8 \strokec8 *\cf5 \strokec5  \cf13 \strokec13 2\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 innerWidth \cf8 \strokec8 <=\cf5 \strokec5  \cf13 \strokec13 0\cf5 \strokec5  \cf8 \strokec8 ||\cf5 \strokec5  innerHeight \cf8 \strokec8 <=\cf5 \strokec5  \cf13 \strokec13 0\cf8 \strokec8 )\cf5 \strokec5  \cf12 \strokec12 return\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf12 \strokec12 const\cf5 \strokec5  scale \cf8 \strokec8 =\cf5 \strokec5  \cf14 \strokec14 Math\cf8 \strokec8 .\cf5 \strokec5 min\cf8 \strokec8 (\cf5 \strokec5 innerWidth \cf8 \strokec8 /\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 shelfUnitWidth\cf8 \strokec8 ,\cf5 \strokec5  innerHeight \cf8 \strokec8 /\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 shelfHeight\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             \cf12 \strokec12 const\cf5 \strokec5  finalShelfDrawingWidth \cf8 \strokec8 =\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 shelfUnitWidth \cf8 \strokec8 *\cf5 \strokec5  scale\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf12 \strokec12 const\cf5 \strokec5  finalShelfDrawingHeight \cf8 \strokec8 =\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 shelfHeight \cf8 \strokec8 *\cf5 \strokec5  scale\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             planogramCanvas\cf8 \strokec8 .\cf5 \strokec5 width \cf8 \strokec8 =\cf5 \strokec5  finalShelfDrawingWidth \cf8 \strokec8 +\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 pillarSlotWidth \cf8 \strokec8 *\cf5 \strokec5  \cf13 \strokec13 2\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 +\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 planogramPadding \cf8 \strokec8 *\cf5 \strokec5  \cf13 \strokec13 2\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             planogramCanvas\cf8 \strokec8 .\cf5 \strokec5 height \cf8 \strokec8 =\cf5 \strokec5  finalShelfDrawingHeight \cf8 \strokec8 +\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 planogramPadding \cf8 \strokec8 *\cf5 \strokec5  \cf13 \strokec13 2\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\
+\cb3         \cf12 \strokec12 function\cf5 \strokec5  drawPlanogram\cf8 \strokec8 ()\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf10 \strokec10 //... (no changes here)\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cb1 \
+\cb3         \cf12 \strokec12 function\cf5 \strokec5  updateShelfDetailsInputs\cf8 \strokec8 (\cf5 \strokec5 num\cf8 \strokec8 ,\cf5 \strokec5  setDefaults \cf8 \strokec8 =\cf5 \strokec5  \cf12 \strokec12 false\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf10 \strokec10 //... (no changes here)\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\
+\cb3         \cf12 \strokec12 function\cf5 \strokec5  addPropUI\cf8 \strokec8 (\cf5 \strokec5 shelfIndex\cf8 \strokec8 ,\cf5 \strokec5  propData \cf8 \strokec8 =\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \strokec5 name\cf8 \strokec8 :\cf5 \strokec5  \cf11 \strokec11 '\uc0\u26032 \u21830 \u21697 '\cf8 \strokec8 ,\cf5 \strokec5  x\cf8 \strokec8 :\cf5 \strokec5  \cf13 \strokec13 0\cf8 \strokec8 ,\cf5 \strokec5  width\cf8 \strokec8 :\cf5 \strokec5  \cf13 \strokec13 300\cf8 \strokec8 \},\cf5 \strokec5  propIndex \cf8 \strokec8 =\cf5 \strokec5  \cf8 \strokec8 -\cf13 \strokec13 1\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf10 \strokec10 //... (no changes here)\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\
+\cb3         \cf12 \strokec12 function\cf5 \strokec5  collectShelfDetails\cf8 \strokec8 ()\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 shelfDetails \cf8 \strokec8 =\cf5 \strokec5  \cf8 \strokec8 [];\cf5 \cb1 \strokec5 \
+\cb3             \cf12 \strokec12 for\cf5 \strokec5  \cf8 \strokec8 (\cf12 \strokec12 let\cf5 \strokec5  i \cf8 \strokec8 =\cf5 \strokec5  \cf13 \strokec13 0\cf8 \strokec8 ;\cf5 \strokec5  i \cf8 \strokec8 <\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 numShelves\cf8 \strokec8 ;\cf5 \strokec5  i\cf8 \strokec8 ++)\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 const\cf5 \strokec5  yInput \cf8 \strokec8 =\cf5 \strokec5  document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 `shelf_y_pos_\cf8 \strokec8 $\{\cf5 \strokec5 i\cf8 \strokec8 \}\cf11 \strokec11 `\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 const\cf5 \strokec5  propsData \cf8 \strokec8 =\cf5 \strokec5  \cf8 \strokec8 [];\cf5 \cb1 \strokec5 \
+\cb3                 \cb1 \
+\cb3                 \cf12 \strokec12 const\cf5 \strokec5  propContainer \cf8 \strokec8 =\cf5 \strokec5  document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 `prop_container_\cf8 \strokec8 $\{\cf5 \strokec5 i\cf8 \strokec8 \}\cf11 \strokec11 `\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 yInput \cf8 \strokec8 &&\cf5 \strokec5  propContainer\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                     \cf12 \strokec12 const\cf5 \strokec5  propItems \cf8 \strokec8 =\cf5 \strokec5  propContainer\cf8 \strokec8 .\cf5 \strokec5 querySelectorAll\cf8 \strokec8 (\cf11 \strokec11 '.prop-item'\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3                     propItems\cf8 \strokec8 .\cf5 \strokec5 forEach\cf8 \strokec8 (\cf5 \strokec5 item \cf8 \strokec8 =>\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                         \cf12 \strokec12 const\cf5 \strokec5  propNameInput \cf8 \strokec8 =\cf5 \strokec5  item\cf8 \strokec8 .\cf5 \strokec5 querySelector\cf8 \strokec8 (\cf11 \strokec11 `input[id^="prop_name_"]`\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3                         \cf12 \strokec12 const\cf5 \strokec5  propXInput \cf8 \strokec8 =\cf5 \strokec5  item\cf8 \strokec8 .\cf5 \strokec5 querySelector\cf8 \strokec8 (\cf11 \strokec11 `input[id^="prop_x_"]`\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3                         \cf12 \strokec12 const\cf5 \strokec5  propWidthInput \cf8 \strokec8 =\cf5 \strokec5  item\cf8 \strokec8 .\cf5 \strokec5 querySelector\cf8 \strokec8 (\cf11 \strokec11 `input[id^="prop_width_"]`\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3                         propsData\cf8 \strokec8 .\cf5 \strokec5 push\cf8 \strokec8 (\{\cf5 \cb1 \strokec5 \
+\cb3                             name\cf8 \strokec8 :\cf5 \strokec5  propNameInput\cf8 \strokec8 .\cf5 \strokec5 value \cf8 \strokec8 ||\cf5 \strokec5  \cf11 \strokec11 '\uc0\u21830 \u21697 '\cf8 \strokec8 ,\cf5 \cb1 \strokec5 \
+\cb3                             x\cf8 \strokec8 :\cf5 \strokec5  parseFloat\cf8 \strokec8 (\cf5 \strokec5 propXInput\cf8 \strokec8 .\cf5 \strokec5 value\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 ||\cf5 \strokec5  \cf13 \strokec13 0\cf8 \strokec8 ,\cf5 \cb1 \strokec5 \
+\cb3                             width\cf8 \strokec8 :\cf5 \strokec5  parseFloat\cf8 \strokec8 (\cf5 \strokec5 propWidthInput\cf8 \strokec8 .\cf5 \strokec5 value\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 ||\cf5 \strokec5  \cf13 \strokec13 300\cf8 \strokec8 ,\cf5 \cb1 \strokec5 \
+\cb3                         \cf8 \strokec8 \});\cf5 \cb1 \strokec5 \
+\cb3                     \cf8 \strokec8 \});\cf5 \cb1 \strokec5 \
+\
+\cb3                     \cf12 \strokec12 const\cf5 \strokec5  detail \cf8 \strokec8 =\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                         y\cf8 \strokec8 :\cf5 \strokec5  parseFloat\cf8 \strokec8 (\cf5 \strokec5 yInput\cf8 \strokec8 .\cf5 \strokec5 value\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 ||\cf5 \strokec5  \cf13 \strokec13 0\cf8 \strokec8 ,\cf5 \cb1 \strokec5 \
+\cb3                         props\cf8 \strokec8 :\cf5 \strokec5  propsData\cb1 \
+\cb3                     \cf8 \strokec8 \};\cf5 \cb1 \strokec5 \
+\cb3                     currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 shelfDetails\cf8 \strokec8 .\cf5 \strokec5 push\cf8 \strokec8 (\cf5 \strokec5 detail\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3                 \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3             \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cb1 \
+\cb3         \cf12 \strokec12 function\cf5 \strokec5  updateProductNamesDatalist\cf8 \strokec8 ()\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf12 \strokec12 const\cf5 \strokec5  productNames \cf8 \strokec8 =\cf5 \strokec5  \cf12 \strokec12 new\cf5 \strokec5  \cf14 \strokec14 Set\cf8 \strokec8 ();\cf5 \cb1 \strokec5 \
+\cb3             currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 shelfDetails\cf8 \strokec8 .\cf5 \strokec5 forEach\cf8 \strokec8 (\cf5 \strokec5 detail \cf8 \strokec8 =>\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                 detail\cf8 \strokec8 .\cf5 \strokec5 props\cf8 \strokec8 .\cf5 \strokec5 forEach\cf8 \strokec8 (\cf5 \strokec5 prop \cf8 \strokec8 =>\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                     \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 prop\cf8 \strokec8 .\cf5 \strokec5 name\cf8 \strokec8 )\cf5 \strokec5  productNames\cf8 \strokec8 .\cf5 \strokec5 add\cf8 \strokec8 (\cf5 \strokec5 prop\cf8 \strokec8 .\cf5 \strokec5 name\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3                 \cf8 \strokec8 \});\cf5 \cb1 \strokec5 \
+\cb3             \cf8 \strokec8 \});\cf5 \cb1 \strokec5 \
+\
+\cb3             \cf12 \strokec12 const\cf5 \strokec5  datalist \cf8 \strokec8 =\cf5 \strokec5  document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 'product-names-list'\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             datalist\cf8 \strokec8 .\cf5 \strokec5 innerHTML \cf8 \strokec8 =\cf5 \strokec5  \cf11 \strokec11 ''\cf8 \strokec8 ;\cf5 \strokec5  \cf10 \strokec10 // Clear existing options\cf5 \cb1 \strokec5 \
+\cb3             productNames\cf8 \strokec8 .\cf5 \strokec5 forEach\cf8 \strokec8 (\cf5 \strokec5 name \cf8 \strokec8 =>\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 const\cf5 \strokec5  option \cf8 \strokec8 =\cf5 \strokec5  document\cf8 \strokec8 .\cf5 \strokec5 createElement\cf8 \strokec8 (\cf11 \strokec11 'option'\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3                 option\cf8 \strokec8 .\cf5 \strokec5 value \cf8 \strokec8 =\cf5 \strokec5  name\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 datalist\cf8 \strokec8 .\cf5 \strokec5 appendChild\cf8 \strokec8 (\cf5 \strokec5 option\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             \cf8 \strokec8 \});\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\
+\cb3         \cf12 \strokec12 function\cf5 \strokec5  updateControlsTarget\cf8 \strokec8 ()\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 controls\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                 controls\cf8 \strokec8 .\cf5 \strokec5 target\cf8 \strokec8 .\cf12 \strokec12 set\cf8 \strokec8 (\cf13 \strokec13 0\cf8 \strokec8 ,\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 shelfHeight \cf8 \strokec8 /\cf5 \strokec5  \cf13 \strokec13 2\cf8 \strokec8 ,\cf5 \strokec5  \cf13 \strokec13 0\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3                 controls\cf8 \strokec8 .\cf5 \strokec5 update\cf8 \strokec8 ();\cf5 \cb1 \strokec5 \
+\cb3             \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\
+\cb3         \cf12 \strokec12 function\cf5 \strokec5  disposeNode\cf8 \strokec8 (\cf5 \strokec5 node\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \strokec5  \cb1 \
+\cb3             \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 node\cf8 \strokec8 .\cf5 \strokec5 children\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 for\cf5 \strokec5  \cf8 \strokec8 (\cf12 \strokec12 let\cf5 \strokec5  i \cf8 \strokec8 =\cf5 \strokec5  node\cf8 \strokec8 .\cf5 \strokec5 children\cf8 \strokec8 .\cf5 \strokec5 length \cf8 \strokec8 -\cf5 \strokec5  \cf13 \strokec13 1\cf8 \strokec8 ;\cf5 \strokec5  i \cf8 \strokec8 >=\cf5 \strokec5  \cf13 \strokec13 0\cf8 \strokec8 ;\cf5 \strokec5  i\cf8 \strokec8 --)\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                     disposeNode\cf8 \strokec8 (\cf5 \strokec5 node\cf8 \strokec8 .\cf5 \strokec5 children\cf8 \strokec8 [\cf5 \strokec5 i\cf8 \strokec8 ]);\cf5 \cb1 \strokec5 \
+\cb3                 \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3             \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3             \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 node \cf12 \strokec12 instanceof\cf5 \strokec5  \cf14 \strokec14 THREE\cf8 \strokec8 .\cf14 \strokec14 Mesh\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 if\cf8 \strokec8 (\cf5 \strokec5 node\cf8 \strokec8 .\cf5 \strokec5 parent\cf8 \strokec8 )\cf5 \strokec5  node\cf8 \strokec8 .\cf5 \strokec5 parent\cf8 \strokec8 .\cf5 \strokec5 remove\cf8 \strokec8 (\cf5 \strokec5 node\cf8 \strokec8 );\cf5 \strokec5  \cb1 \
+\cb3                 node\cf8 \strokec8 .\cf5 \strokec5 geometry\cf8 \strokec8 .\cf5 \strokec5 dispose\cf8 \strokec8 ();\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf14 \strokec14 Array\cf8 \strokec8 .\cf5 \strokec5 isArray\cf8 \strokec8 (\cf5 \strokec5 node\cf8 \strokec8 .\cf5 \strokec5 material\cf8 \strokec8 ))\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                     node\cf8 \strokec8 .\cf5 \strokec5 material\cf8 \strokec8 .\cf5 \strokec5 forEach\cf8 \strokec8 (\cf5 \strokec5 material \cf8 \strokec8 =>\cf5 \strokec5  material\cf8 \strokec8 .\cf5 \strokec5 dispose\cf8 \strokec8 ());\cf5 \cb1 \strokec5 \
+\cb3                 \cf8 \strokec8 \}\cf5 \strokec5  \cf12 \strokec12 else\cf5 \strokec5  \cf12 \strokec12 if\cf8 \strokec8 (\cf5 \strokec5 node\cf8 \strokec8 .\cf5 \strokec5 material\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                     node\cf8 \strokec8 .\cf5 \strokec5 material\cf8 \strokec8 .\cf5 \strokec5 dispose\cf8 \strokec8 ();\cf5 \cb1 \strokec5 \
+\cb3                 \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3             \cf8 \strokec8 \}\cf5 \strokec5  \cf12 \strokec12 else\cf5 \strokec5  \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 node \cf12 \strokec12 instanceof\cf5 \strokec5  \cf14 \strokec14 THREE\cf8 \strokec8 .\cf14 \strokec14 CSS2DObject\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                  \cf12 \strokec12 if\cf8 \strokec8 (\cf5 \strokec5 node\cf8 \strokec8 .\cf5 \strokec5 parent\cf8 \strokec8 )\cf5 \strokec5  node\cf8 \strokec8 .\cf5 \strokec5 parent\cf8 \strokec8 .\cf5 \strokec5 remove\cf8 \strokec8 (\cf5 \strokec5 node\cf8 \strokec8 );\cf5 \strokec5  \cb1 \
+\cb3             \cf8 \strokec8 \}\cf5 \strokec5  \cf12 \strokec12 else\cf5 \strokec5  \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 node\cf8 \strokec8 .\cf5 \strokec5 parent\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                 node\cf8 \strokec8 .\cf5 \strokec5 parent\cf8 \strokec8 .\cf5 \strokec5 remove\cf8 \strokec8 (\cf5 \strokec5 node\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf12 \strokec12 function\cf5 \strokec5  clearShelf\cf8 \strokec8 ()\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \strokec5  \cb1 \
+\cb3             \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 shelfGroup\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                 disposeNode\cf8 \strokec8 (\cf5 \strokec5 shelfGroup\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3                 scene\cf8 \strokec8 .\cf5 \strokec5 remove\cf8 \strokec8 (\cf5 \strokec5 shelfGroup\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3                 shelfGroup \cf8 \strokec8 =\cf5 \strokec5  \cf12 \strokec12 null\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3             \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\
+\cb3         \cf12 \strokec12 function\cf5 \strokec5  regenerateFromData\cf8 \strokec8 (\cf5 \strokec5 readFromUI\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \strokec5  \cb1 \
+\cb3             \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 readFromUI\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 const\cf5 \strokec5  newNumShelves \cf8 \strokec8 =\cf5 \strokec5  parseInt\cf8 \strokec8 (\cf5 \strokec5 document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 'numShelvesInput'\cf8 \strokec8 ).\cf5 \strokec5 value\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 const\cf5 \strokec5  currentUIShelves \cf8 \strokec8 =\cf5 \strokec5  document\cf8 \strokec8 .\cf5 \strokec5 querySelectorAll\cf8 \strokec8 (\cf11 \strokec11 '.shelf-details-group'\cf8 \strokec8 ).\cf5 \strokec5 length\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 newNumShelves \cf8 \strokec8 !==\cf5 \strokec5  currentUIShelves\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                     updateShelfDetailsInputs\cf8 \strokec8 (\cf5 \strokec5 newNumShelves\cf8 \strokec8 ,\cf5 \strokec5  \cf12 \strokec12 true\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3                 \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\
+\cb3                 currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 shelfHeight \cf8 \strokec8 =\cf5 \strokec5  parseFloat\cf8 \strokec8 (\cf5 \strokec5 document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 'shelfHeightInput'\cf8 \strokec8 ).\cf5 \strokec5 value\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3                 currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 shelfUnitWidth \cf8 \strokec8 =\cf5 \strokec5  parseFloat\cf8 \strokec8 (\cf5 \strokec5 document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 'shelfWidthInput'\cf8 \strokec8 ).\cf5 \strokec5 value\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3                 currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 shelfDepth \cf8 \strokec8 =\cf5 \strokec5  parseFloat\cf8 \strokec8 (\cf5 \strokec5 document\cf8 \strokec8 .\cf5 \strokec5 getElementById\cf8 \strokec8 (\cf11 \strokec11 'shelfDepthInput'\cf8 \strokec8 ).\cf5 \strokec5 value\cf8 \strokec8 );\cf5 \strokec5  \cb1 \
+\cb3                 currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 numShelves \cf8 \strokec8 =\cf5 \strokec5  newNumShelves\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 collectShelfDetails\cf8 \strokec8 ();\cf5 \strokec5  \cb1 \
+\
+\cb3                 \cf12 \strokec12 let\cf5 \strokec5  lastY \cf8 \strokec8 =\cf5 \strokec5  \cf13 \strokec13 0\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 \cf12 \strokec12 for\cf5 \strokec5  \cf8 \strokec8 (\cf12 \strokec12 let\cf5 \strokec5  i \cf8 \strokec8 =\cf5 \strokec5  \cf13 \strokec13 0\cf8 \strokec8 ;\cf5 \strokec5  i \cf8 \strokec8 <\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 numShelves\cf8 \strokec8 ;\cf5 \strokec5  i\cf8 \strokec8 ++)\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                     \cf12 \strokec12 const\cf5 \strokec5  detail \cf8 \strokec8 =\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 shelfDetails\cf8 \strokec8 [\cf5 \strokec5 i\cf8 \strokec8 ];\cf5 \cb1 \strokec5 \
+\cb3                     \cf12 \strokec12 if\cf8 \strokec8 (!\cf5 \strokec5 detail\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \strokec5  \cb1 \
+\cb3                         showModal\cf8 \strokec8 (\cf11 \strokec11 `\uc0\u35835 \u21462 \u23618 \u26495  \cf8 \strokec8 $\{\cf5 \strokec5 i\cf8 \strokec8 +\cf13 \strokec13 1\cf8 \strokec8 \}\cf11 \strokec11  \uc0\u25968 \u25454 \u26102 \u20986 \u38169 \u12290 `\cf8 \strokec8 );\cf5 \strokec5  \cf12 \strokec12 return\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                     \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3                     \cf12 \strokec12 const\cf5 \strokec5  yPos \cf8 \strokec8 =\cf5 \strokec5  detail\cf8 \strokec8 .\cf5 \strokec5 y\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                     \cf12 \strokec12 const\cf5 \strokec5  minY \cf8 \strokec8 =\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 baseShelfOffset \cf8 \strokec8 +\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 plankThickness \cf8 \strokec8 /\cf5 \strokec5  \cf13 \strokec13 2\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                     \cf12 \strokec12 const\cf5 \strokec5  maxY \cf8 \strokec8 =\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 shelfHeight \cf8 \strokec8 -\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 plankThickness \cf8 \strokec8 /\cf5 \strokec5  \cf13 \strokec13 2\cf5 \strokec5  \cf8 \strokec8 -\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 plankLipHeight \cf8 \strokec8 /\cf5 \strokec5  \cf13 \strokec13 2\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                     \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 isNaN\cf8 \strokec8 (\cf5 \strokec5 yPos\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 ||\cf5 \strokec5  yPos \cf8 \strokec8 <\cf5 \strokec5  minY \cf8 \strokec8 ||\cf5 \strokec5  yPos \cf8 \strokec8 >\cf5 \strokec5  maxY \cf8 \strokec8 ||\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 i \cf8 \strokec8 >\cf5 \strokec5  \cf13 \strokec13 0\cf5 \strokec5  \cf8 \strokec8 &&\cf5 \strokec5  yPos \cf8 \strokec8 <=\cf5 \strokec5  lastY \cf8 \strokec8 +\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 plankThickness \cf8 \strokec8 +\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 bracketHeight\cf8 \strokec8 ))\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                         showModal\cf8 \strokec8 (\cf11 \strokec11 `\uc0\u23618 \u26495  \cf8 \strokec8 $\{\cf5 \strokec5 i \cf8 \strokec8 +\cf5 \strokec5  \cf13 \strokec13 1\cf8 \strokec8 \}\cf11 \strokec11  \uc0\u30340 \u39640 \u24230 \u35774 \u32622 \u26080 \u25928 \u25110 \u19982 \u20854 \u20182 \u23618 \u26495 \u20914 \u31361 \u12290 \u35831 \u26816 \u26597 \u12290 `\cf8 \strokec8 );\cf5 \strokec5  \cf12 \strokec12 return\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                     \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3                     \cb1 \
+\cb3                     \cf12 \strokec12 const\cf5 \strokec5  shelfHalfWidth \cf8 \strokec8 =\cf5 \strokec5  currentShelfParams\cf8 \strokec8 .\cf5 \strokec5 shelfUnitWidth \cf8 \strokec8 /\cf5 \strokec5  \cf13 \strokec13 2\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                     \cf12 \strokec12 const\cf5 \strokec5  sortedProps \cf8 \strokec8 =\cf5 \strokec5  detail\cf8 \strokec8 .\cf5 \strokec5 props\cf8 \strokec8 .\cf5 \strokec5 slice\cf8 \strokec8 ().\cf5 \strokec5 sort\cf8 \strokec8 ((\cf5 \strokec5 a\cf8 \strokec8 ,\cf5 \strokec5  b\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 =>\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 a\cf8 \strokec8 .\cf5 \strokec5 x \cf8 \strokec8 -\cf5 \strokec5  a\cf8 \strokec8 .\cf5 \strokec5 width\cf8 \strokec8 /\cf13 \strokec13 2\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 -\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 b\cf8 \strokec8 .\cf5 \strokec5 x \cf8 \strokec8 -\cf5 \strokec5  b\cf8 \strokec8 .\cf5 \strokec5 width\cf8 \strokec8 /\cf13 \strokec13 2\cf8 \strokec8 ));\cf5 \cb1 \strokec5 \
+\cb3                     \cf12 \strokec12 for\cf5 \strokec5  \cf8 \strokec8 (\cf12 \strokec12 let\cf5 \strokec5  j \cf8 \strokec8 =\cf5 \strokec5  \cf13 \strokec13 0\cf8 \strokec8 ;\cf5 \strokec5  j \cf8 \strokec8 <\cf5 \strokec5  sortedProps\cf8 \strokec8 .\cf5 \strokec5 length\cf8 \strokec8 ;\cf5 \strokec5  j\cf8 \strokec8 ++)\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                         \cf12 \strokec12 const\cf5 \strokec5  prop \cf8 \strokec8 =\cf5 \strokec5  sortedProps\cf8 \strokec8 [\cf5 \strokec5 j\cf8 \strokec8 ];\cf5 \cb1 \strokec5 \
+\cb3                         \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf14 \strokec14 Math\cf8 \strokec8 .\cf5 \strokec5 abs\cf8 \strokec8 (\cf5 \strokec5 prop\cf8 \strokec8 .\cf5 \strokec5 x\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 +\cf5 \strokec5  prop\cf8 \strokec8 .\cf5 \strokec5 width \cf8 \strokec8 /\cf5 \strokec5  \cf13 \strokec13 2\cf5 \strokec5  \cf8 \strokec8 >\cf5 \strokec5  shelfHalfWidth\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                              showModal\cf8 \strokec8 (\cf11 \strokec11 `\uc0\u23618 \u26495  \cf8 \strokec8 $\{\cf5 \strokec5 i \cf8 \strokec8 +\cf5 \strokec5  \cf13 \strokec13 1\cf8 \strokec8 \}\cf11 \strokec11  \uc0\u19978 \u30340 \u21830 \u21697  '\cf8 \strokec8 $\{\cf5 \strokec5 prop\cf8 \strokec8 .\cf5 \strokec5 name\cf8 \strokec8 \}\cf11 \strokec11 ' \uc0\u36229 \u20986 \u36135 \u26550 \u36793 \u30028 \u12290 `\cf8 \strokec8 );\cf5 \strokec5  \cf12 \strokec12 return\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3                         \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 j \cf8 \strokec8 >\cf5 \strokec5  \cf13 \strokec13 0\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                             \cf12 \strokec12 const\cf5 \strokec5  prevProp \cf8 \strokec8 =\cf5 \strokec5  sortedProps\cf8 \strokec8 [\cf5 \strokec5 j \cf8 \strokec8 -\cf5 \strokec5  \cf13 \strokec13 1\cf8 \strokec8 ];\cf5 \cb1 \strokec5 \
+\cb3                             \cf12 \strokec12 const\cf5 \strokec5  prevPropRight \cf8 \strokec8 =\cf5 \strokec5  prevProp\cf8 \strokec8 .\cf5 \strokec5 x \cf8 \strokec8 +\cf5 \strokec5  prevProp\cf8 \strokec8 .\cf5 \strokec5 width \cf8 \strokec8 /\cf5 \strokec5  \cf13 \strokec13 2\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                             \cf12 \strokec12 const\cf5 \strokec5  currentPropLeft \cf8 \strokec8 =\cf5 \strokec5  prop\cf8 \strokec8 .\cf5 \strokec5 x \cf8 \strokec8 -\cf5 \strokec5  prop\cf8 \strokec8 .\cf5 \strokec5 width \cf8 \strokec8 /\cf5 \strokec5  \cf13 \strokec13 2\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                             \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 prevPropRight \cf8 \strokec8 >\cf5 \strokec5  currentPropLeft\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3                                 showModal\cf8 \strokec8 (\cf11 \strokec11 `\uc0\u23618 \u26495  \cf8 \strokec8 $\{\cf5 \strokec5 i \cf8 \strokec8 +\cf5 \strokec5  \cf13 \strokec13 1\cf8 \strokec8 \}\cf11 \strokec11  \uc0\u19978 \u30340 \u21830 \u21697  '\cf8 \strokec8 $\{\cf5 \strokec5 prevProp\cf8 \strokec8 .\cf5 \strokec5 name\cf8 \strokec8 \}\cf11 \strokec11 ' \uc0\u21644  '\cf8 \strokec8 $\{\cf5 \strokec5 prop\cf8 \strokec8 .\cf5 \strokec5 name\cf8 \strokec8 \}\cf11 \strokec11 ' \uc0\u21457 \u29983 \u37325 \u21472 \u12290 `\cf8 \strokec8 );\cf5 \strokec5  \cf12 \strokec12 return\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                             \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3                         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3                     \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3                     lastY \cf8 \strokec8 =\cf5 \strokec5  yPos\cf8 \strokec8 ;\cf5 \cb1 \strokec5 \
+\cb3                 \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3             \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3             \cb1 \
+\cb3             clearShelf\cf8 \strokec8 ();\cf5 \cb1 \strokec5 \
+\cb3             createSupermarketShelf\cf8 \strokec8 ();\cf5 \cb1 \strokec5 \
+\cb3             updateControlsTarget\cf8 \strokec8 ();\cf5 \cb1 \strokec5 \
+\cb3             setupPlanogramCanvas\cf8 \strokec8 ();\cf5 \strokec5  \cb1 \
+\cb3             drawPlanogram\cf8 \strokec8 ();\cf5 \strokec5  \cb1 \
+\cb3             updateProductNamesDatalist\cf8 \strokec8 ();\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\
+\cb3         \cf12 \strokec12 function\cf5 \strokec5  createSupermarketShelf\cf8 \strokec8 ()\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3            \cf10 \strokec10 //... (no changes here)\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\
+\cb3         \cf12 \strokec12 function\cf5 \strokec5  onWindowResize\cf8 \strokec8 ()\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \strokec5  \cb1 \
+\cb3             \cf10 \strokec10 //... (no changes here)\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf12 \strokec12 function\cf5 \strokec5  animate\cf8 \strokec8 ()\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \strokec5  \cb1 \
+\cb3             requestAnimationFrame\cf8 \strokec8 (\cf5 \strokec5 animate\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             controls\cf8 \strokec8 .\cf5 \strokec5 update\cf8 \strokec8 ();\cf5 \strokec5  \cb1 \
+\cb3             renderer\cf8 \strokec8 .\cf5 \strokec5 render\cf8 \strokec8 (\cf5 \strokec5 scene\cf8 \strokec8 ,\cf5 \strokec5  camera\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3             labelRenderer\cf8 \strokec8 .\cf5 \strokec5 render\cf8 \strokec8 (\cf5 \strokec5 scene\cf8 \strokec8 ,\cf5 \strokec5  camera\cf8 \strokec8 );\cf5 \strokec5  \cb1 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3         \cf12 \strokec12 function\cf5 \strokec5  showModal\cf8 \strokec8 (\cf5 \strokec5 message\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \strokec5  \cb1 \
+\cb3            \cf10 \strokec10 // ... (no changes here)\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\
+\cb3         \cf12 \strokec12 function\cf5 \strokec5  export3DAsImage\cf8 \strokec8 (\cf5 \strokec5 format \cf8 \strokec8 =\cf5 \strokec5  \cf11 \strokec11 'image/png'\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3            \cf10 \strokec10 // ... (no changes here)\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\
+\cb3         \cf12 \strokec12 function\cf5 \strokec5  export3DAsPDF\cf8 \strokec8 ()\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             \cf10 \strokec10 // ... (no changes here)\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\
+\cb3         \cf12 \strokec12 async\cf5 \strokec5  \cf12 \strokec12 function\cf5 \strokec5  exportPlanogramAsPDF\cf8 \strokec8 ()\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3            \cf10 \strokec10 // ... (no changes here)\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\
+\cb3         \cf12 \strokec12 if\cf5 \strokec5  \cf8 \strokec8 (\cf5 \strokec5 document\cf8 \strokec8 .\cf5 \strokec5 readyState \cf8 \strokec8 ===\cf5 \strokec5  \cf11 \strokec11 'loading'\cf8 \strokec8 )\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             document\cf8 \strokec8 .\cf5 \strokec5 addEventListener\cf8 \strokec8 (\cf11 \strokec11 'DOMContentLoaded'\cf8 \strokec8 ,\cf5 \strokec5  init\cf8 \strokec8 );\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \strokec5  \cf12 \strokec12 else\cf5 \strokec5  \cf8 \strokec8 \{\cf5 \cb1 \strokec5 \
+\cb3             init\cf8 \strokec8 ();\cf5 \cb1 \strokec5 \
+\cb3         \cf8 \strokec8 \}\cf5 \cb1 \strokec5 \
+\cb3     \cf6 \strokec6 </\cf2 \strokec2 script\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+\cf6 \cb3 \strokec6 </\cf2 \strokec2 body\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+\cf6 \cb3 \strokec6 </\cf2 \strokec2 html\cf6 \strokec6 >\cf5 \cb1 \strokec5 \
+}
