@@ -1,0 +1,6 @@
+# Tell Railway to install Python
+providers = ["python"]
+
+[start]
+# Tell Railway how to start the web server
+cmd = "python3 -m http.server $PORT"
